@@ -12,11 +12,15 @@ input.inputSearch {
   width: 400px;
   height: 36px; }
 
+button.findButton {
+  background-color: #32a5fd; }
+
 /*-------------second section-------------- */
-div #secondContainer {
+div#secondContainer {
   display: flex;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  padding: 0; }
 
 ul.frameImages {
   margin: 0 auto;
@@ -47,8 +51,11 @@ p#result {
   font-size: 26px;
   font-family: sans-serif; }
 
-button.findButton {
-  color: #32a5fd; }
+img.amazon-logo {
+  width: 121px;
+  height: 80px;
+  margin-top: 50px;
+  margin-right: 10px; }
 
 div #amazonImages {
   display: flex; }
@@ -57,14 +64,14 @@ div #amazonImages {
     padding: 0;
     margin-bottom: 0px;
     white-space: nowrap;
-    width: 900px;
-    overflow-x: auto; }
+    overflow-x: auto;
+    width: 900px; }
     div #amazonImages ul li {
       display: inline;
       width: 150px;
       height: 150px; }
       div #amazonImages ul li img {
-        width: 220px;
+        width: 250px;
         height: 200px; }
 
 /*-------------aliexpress section-------------- */
@@ -85,6 +92,12 @@ div #aliImages {
         width: 250px;
         height: 200px; }
 
+img.ali-logo {
+  width: 121px;
+  height: 80px;
+  margin-top: 50px;
+  margin-right: 10px; }
+
 /*-------------ebay section-------------- */
 div #ebayImages {
   display: flex; }
@@ -103,6 +116,12 @@ div #ebayImages {
         width: 250px;
         height: 200px; }
 
+img.ebay-logo {
+  width: 121px;
+  height: 80px;
+  margin-top: 50px;
+  margin-right: 10px; }
+
 /*<----media Queries------> */
 @media all and (max-width: 765px) {
   #secondContainer {
@@ -115,7 +134,11 @@ div #ebayImages {
     font-size: 15px; }
 
   input.inputSearch {
-    width: 100%; } }
+    width: 100%; }
+
+  #findForm {
+    display: flex;
+    flex-flow: column; } }
 @media all and (min-width: 765px) {
   #secondContainer {
     width: 100%;

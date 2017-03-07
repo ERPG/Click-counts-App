@@ -1,6 +1,22 @@
 const fs = require('fs')
 const request = require('request')
 const cheerio = require('cheerio')
+const express = require('express')
+const app = express()
+
+
+app.use(express.static(__dirname + '/public'));
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+
+
+app.post('/login', function (req, res){
+	res.redirect('home')
+})
+
+app.post()
 
 //---------------
 

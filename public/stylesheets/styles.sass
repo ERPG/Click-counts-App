@@ -16,15 +16,18 @@ input.inputSearch
 	width: 400px
 	height: 36px
 
+button.findButton
+	background-color: #32a5fd
+
 
 
 
 /*-------------second section--------------*/
-div
-	#secondContainer
-		display: flex
-		width: 100%
-		height: 100%
+div#secondContainer
+	display: flex
+	width: 100%
+	height: 100%
+	padding: 0
 
 
 
@@ -62,10 +65,12 @@ p#result
 	font-size: 26px
 	font-family: sans-serif
 
-button.findButton
-	color: #32a5fd
 
-
+img.amazon-logo
+	width: 121px
+	height: 80px
+	margin-top: 50px
+	margin-right: 10px
 
 
 div
@@ -76,14 +81,14 @@ div
 			padding: 0
 			margin-bottom: 0px
 			white-space: nowrap
-			width: 900px
 			overflow-x: auto
+			width: 900px
 			li
 				display: inline
 				width: 150px
 				height: 150px
 				img
-					width: 220px
+					width: 250px
 					height: 200px
 
 /*-------------aliexpress section--------------*/
@@ -107,6 +112,12 @@ div
 					width: 250px
 					height: 200px
 
+img.ali-logo
+	width: 121px
+	height: 80px
+	margin-top: 50px
+	margin-right: 10px
+
 
 /*-------------ebay section--------------*/
 
@@ -128,6 +139,11 @@ div
 					width: 250px
 					height: 200px
 
+img.ebay-logo
+	width: 121px
+	height: 80px
+	margin-top: 50px
+	margin-right: 10px
 
 /*<----media Queries------>*/
 
@@ -140,6 +156,9 @@ div
 		font-size: 15px
 	input.inputSearch
 		width: 100%
+	#findForm
+		display: flex
+		flex-flow: column
 
 
 
