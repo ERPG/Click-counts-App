@@ -1,18 +1,20 @@
 $break-medium: 765px
 
 /*-------------first nav-bar section--------------*/
-img
-	#logoImg
-		width: 100%
-		height: 37px
+#logoImg
+	width: 166px
+	height: 100%
 
 
 form
 	#findForm
 		text-align: center
 		margin-top: 10px
-		input
-			border-radius: 5px
+
+input.inputSearch
+	border-radius: 5px
+	width: 400px
+	height: 36px
 
 
 
@@ -46,17 +48,25 @@ ul
 /*-------------Amazon section--------------*/
 
 div
-	#amazon-bar
+	#results-bar
 		background-color: #000000
 		margin-top: 10px
 		text-align: center
 		height: 60px
 		.navbar-brand
 			padding: 0
-			img
-				text-align: center
-				height: 58px
-				width: 122px
+
+p#result
+	color: white
+	margin-top: 18px
+	font-size: 26px
+	font-family: sans-serif
+
+button.findButton
+	color: #32a5fd
+
+
+
 
 div
 	#amazonImages
@@ -78,19 +88,6 @@ div
 
 /*-------------aliexpress section--------------*/
 
-div
-	#aliexpress-bar
-		background-color: white
-		border: 2px solid #000000
-		margin-top: 40px
-		text-align: center
-		height: 60px
-		.navbar-brand
-			padding: 0
-			img
-				text-align: center
-				height: 55px
-
 
 div
 	#aliImages
@@ -111,6 +108,26 @@ div
 					height: 200px
 
 
+/*-------------ebay section--------------*/
+
+div
+	#ebayImages
+		display: flex
+		ul
+			margin: 0 auto
+			padding: 0
+			margin-bottom: 0px
+			white-space: nowrap
+			width: 900px
+			overflow-x: auto
+			li
+				display: inline
+				width: 150px
+				height: 150px
+				img
+					width: 250px
+					height: 200px
+
 
 /*<----media Queries------>*/
 
@@ -119,6 +136,11 @@ div
 		margin-top: 168px
 	input
 		width: 100%
+	p#result
+		font-size: 15px
+	input.inputSearch
+		width: 100%
+
 
 
 @media all and (min-width:$break-medium)

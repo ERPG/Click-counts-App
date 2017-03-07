@@ -1,13 +1,16 @@
 /*-------------first nav-bar section-------------- */
-img #logoImg {
-  width: 100%;
-  height: 37px; }
+#logoImg {
+  width: 166px;
+  height: 100%; }
 
 form #findForm {
   text-align: center;
   margin-top: 10px; }
-  form #findForm input {
-    border-radius: 5px; }
+
+input.inputSearch {
+  border-radius: 5px;
+  width: 400px;
+  height: 36px; }
 
 /*-------------second section-------------- */
 div #secondContainer {
@@ -30,17 +33,22 @@ ul.frameImages {
       height: 300px; }
 
 /*-------------Amazon section-------------- */
-div #amazon-bar {
+div #results-bar {
   background-color: #000000;
   margin-top: 10px;
   text-align: center;
   height: 60px; }
-  div #amazon-bar .navbar-brand {
+  div #results-bar .navbar-brand {
     padding: 0; }
-    div #amazon-bar .navbar-brand img {
-      text-align: center;
-      height: 58px;
-      width: 122px; }
+
+p#result {
+  color: white;
+  margin-top: 18px;
+  font-size: 26px;
+  font-family: sans-serif; }
+
+button.findButton {
+  color: #32a5fd; }
 
 div #amazonImages {
   display: flex; }
@@ -60,18 +68,6 @@ div #amazonImages {
         height: 200px; }
 
 /*-------------aliexpress section-------------- */
-div #aliexpress-bar {
-  background-color: white;
-  border: 2px solid #000000;
-  margin-top: 40px;
-  text-align: center;
-  height: 60px; }
-  div #aliexpress-bar .navbar-brand {
-    padding: 0; }
-    div #aliexpress-bar .navbar-brand img {
-      text-align: center;
-      height: 55px; }
-
 div #aliImages {
   display: flex; }
   div #aliImages ul {
@@ -89,12 +85,36 @@ div #aliImages {
         width: 250px;
         height: 200px; }
 
+/*-------------ebay section-------------- */
+div #ebayImages {
+  display: flex; }
+  div #ebayImages ul {
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    width: 900px;
+    overflow-x: auto; }
+    div #ebayImages ul li {
+      display: inline;
+      width: 150px;
+      height: 150px; }
+      div #ebayImages ul li img {
+        width: 250px;
+        height: 200px; }
+
 /*<----media Queries------> */
 @media all and (max-width: 765px) {
   #secondContainer {
     margin-top: 168px; }
 
   input {
+    width: 100%; }
+
+  p#result {
+    font-size: 15px; }
+
+  input.inputSearch {
     width: 100%; } }
 @media all and (min-width: 765px) {
   #secondContainer {
