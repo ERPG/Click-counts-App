@@ -11,7 +11,7 @@
 <body>
     <!---first section -->
     <!--     <div class="container"> -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="homeNavbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -26,8 +26,7 @@
             </div>
             <form id="findForm" method="POST" action="/home/find" class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input class="inputSearch" type="text" class="form-control" placeholder="Find your product..."
-                    name="productSearch">
+                    <input class="inputSearch" type="text" class="form-control" placeholder="Find your product..." name="productSearch">
                 </div>
                 <button type="submit" class="findButton btn btn-default">Find</button>
             </form>
@@ -35,12 +34,35 @@
         </div>
     </nav>
     <!-- second Section -->
-    <div id="secondContainer" class="jumbotron">
-        <ul class="frameImages">
-            <li><img src="http://i0.wp.com/asesoresdepymes.com/wp-content/uploads/2016/05/luces_amazon.jpg"></li>
-            <li><img src="https://i.ytimg.com/vi/Y2S6BpFvy3c/maxresdefault.jpg"></li>
-            <li><img src="https://www.picodi.com/es/top-chollos/wp-content/uploads/2015/11/coupons-aliexpress.jpg"></li>
-        </ul>
+    <div id="secondContainer">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/kindle/merch/gw/2016/eink_fam_ea_qh-gw-superhero-es-1500x300._CB268875482_.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/digital/video/magellan/country/spain/ES_X-Site_GWSuperhero_Desktop_FT_3000x600._CB533724925_.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/amazonservices/seller_success_stories/2017/IWD/2017_IWD_gw-desktopHero_2x_ES._CB533527818_.jpg" alt="...">
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+        <!-- Carousel -->
     </div>
     <!-- third section -->
     <div class="container">
@@ -68,7 +90,7 @@
         </div>
         <div id="aliProducts" class="jumbotron">
             <div id="aliImages" class="container">
-            	<img class="ali-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCF1sgGv9D6TiQsI7kh2tiwPdektQrAs-iEJUIp5yT1edwNbRNQ">
+                <img class="ali-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCF1sgGv9D6TiQsI7kh2tiwPdektQrAs-iEJUIp5yT1edwNbRNQ">
                 <ul>
                     <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
                     <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
@@ -81,7 +103,7 @@
         </div>
         <div id="ebayProducts" class="jumbotron">
             <div id="ebayImages" class="container">
-            	<img class="ebay-logo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQVuv4ejgqLdzx5NBuxYVKo2eHsLxp4jrGaOZ03Kr1X2u34lEMuMg">
+                <img class="ebay-logo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQVuv4ejgqLdzx5NBuxYVKo2eHsLxp4jrGaOZ03Kr1X2u34lEMuMg">
                 <ul>
                     <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
                     <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>

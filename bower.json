@@ -1,7 +1,7 @@
 {
   "name": "click-counts-app",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "license": "ISC",
   "homepage": "",
   "ignore": [

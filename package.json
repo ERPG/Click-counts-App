@@ -1,3 +1,28 @@
+// {
+//   "name": "click-counts-app",
+//   "version": "1.0.0",
+//   "description": "",
+//   "main": "app.js",
+//   "engines": {
+//     "node": "6.9.1"
+//   },
+//   "scripts": {
+//     "prestart": "bower install",
+//     "start": "node app.js"
+//   },
+//   "author": "",
+//   "license": "ISC",
+//   "dependencies": {
+//     "body-parser": "^1.17.1",
+//     "cheerio": "^0.22.0",
+//     "express": "^4.15.2",
+//     "request": "^2.80.0"
+//   },
+//   "devDependencies": {
+//     "grunt-status": "0.0.1"
+//   }
+// }
+
 {
   "name": "click-counts-app",
   "version": "1.0.0",
@@ -7,12 +32,14 @@
     "node": "6.9.1"
   },
   "scripts": {
-    "prestart": "bower install",
+    "prestart": "npm install",
+    "postinstall": "./node_modules/bower/bin/bower install",
     "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.8.0",
     "body-parser": "^1.17.1",
     "cheerio": "^0.22.0",
     "express": "^4.15.2",
