@@ -1,3 +1,37 @@
+/*-------------login styles-------------- */
+h1#welcome {
+  text-align: center; }
+
+h2#slogan {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: monospace;
+  color: crimson;
+  font-size: xx-large; }
+
+div.or {
+  text-align: center; }
+
+i#facebook {
+  margin-right: 10px; }
+
+img#loginLogo {
+  height: 200px; }
+
+form#loginForm {
+  width: 333px;
+  margin: 0 auto; }
+
+div#logincontainer {
+  box-shadow: 10px 10px 5px #888;
+  border: 2px solid;
+  border-radius: 35px;
+  padding-bottom: 55px;
+  margin-top: 100px;
+  margin-left: 60px;
+  margin-right: 60px; }
+
+/*-------------home styles-------------- */
 /*-------------first nav-bar section-------------- */
 #logoImg {
   width: 166px;

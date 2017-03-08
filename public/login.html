@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+    <script src="https://use.fontawesome.com/371b844f0e.js"></script>
 </head>
 
 <body>
-    <div class="container">
-    <h1>Welcome to <img src="http://i67.tinypic.com/978bvd.png"></h1>
-        <form action="/login" class="form-signin">
+
+    <div id="logincontainer" class="container">
+    <h1 id="welcome"><b>Welcome to</b> <img id="loginLogo" src="http://i67.tinypic.com/978bvd.png"></h1>
+    <h2 id="slogan">Your Internet price comparator!!</h2>
+        <form id="loginForm" action="/login" class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -24,6 +27,12 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
+        <div class="or"2>
+            <h3>Or by... </h3>
+            <i id="facebook" class="fa fa-facebook-official fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>        
+        </div>
+        
     </div>
     <!-- /container -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
