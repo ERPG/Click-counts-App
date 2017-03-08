@@ -2,12 +2,13 @@
   "name": "click-counts-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "6.9.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "bower install",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
