@@ -24,9 +24,10 @@
                     <img id="logoImg" src="http://i67.tinypic.com/978bvd.png" alt="">
                 </a>
             </div>
-            <form id="findForm" class="navbar-form navbar-left" role="search">
+            <form id="findForm" method="POST" action="/home/find" class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input class="inputSearch" type="text" class="form-control" placeholder="Search">
+                    <input class="inputSearch" type="text" class="form-control" placeholder="Find your product..."
+                    name="productSearch">
                 </div>
                 <button type="submit" class="findButton btn btn-default">Find</button>
             </form>

@@ -3,39 +3,57 @@ const request = require('request')
 const cheerio = require('cheerio')
 const express = require('express')
 const app = express()
+const PORT = 3000
+const bodyParser = require('body-parser')
+
 
 
 app.use(express.static(__dirname + '/public'));
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 
-app.post('/login', function (req, res){
+app.get('/login', function (req, res){
 	res.redirect('home')
 })
 
-app.post()
+var amazonImg = [];
 
-//---------------
+app.get('/home/find', function (req, res) {
 
-const amazonUrl ="https://www.amazon.es/s/ref=nb_sb_noss_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=[KEYWORD]"
+	
+	const searchProduct = req.body.productSearch
 
+	const url ="https://www.amazon.es/s/ref=nb_sb_noss_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=[KEYWORD]"
 
-request(amazonUrl, function (err, res, body){
+	const amazonUrl = url.replace('[KEYWORD]', searchProduct)
 
-	var $ = cheerio.load(body);
+	request(amazonUrl, (err, res, body) => {
 
-	var links = $('link').map(function(i) {
-			return $(this).attr('href') + "\n";
-    }).get();
+		var $ = cheerio.load(body);
 
-    fs.writeFile('test.txt', links, function(err){
-    	if (err) throw err;
-    	console.log('Its saved')
-    })
+		$('ul#s-results-list-atf img.s-access-image.cfMarker').each( function(i, elem) {
+
+			var images = $(this).attr('src')
+
+			amazonImg.push(images)
+    	});
+
+		console.log(amazonImg);
+
+    	
+})
 
 
 })
+
+
+
+
+
+
+
+
+
+app.listen(PORT, () => console.log(`listening on PORT ${ PORT }...`))
   
