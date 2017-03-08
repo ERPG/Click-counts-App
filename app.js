@@ -19,7 +19,7 @@ app.get('/login', function (req, res){
 
 var amazonImg = [];
 
-app.get('/home/find', function (req, res) {
+app.post('/home/find', function (req, res) {
 
 	
 	const searchProduct = req.body.productSearch
