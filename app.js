@@ -12,53 +12,45 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
-app.get('/', function(req, res){
-	res.redirect('login')
+app.get('/', function(req, res) {
+	console.log('step1');
+    res.redirect('login')
 })
 
-app.get('/login', function (req, res){
-	res.redirect('home')
+app.post('/login', function(req, res) {
+	console.log('step2');
+    res.redirect('home')
 })
 
 var amazonImg = [];
 
-app.post('/home/find', function (req, res) {
+app.post('/home/find', function(req, res) {
 
-	
-	const searchProduct = req.body.productSearch
 
-	const url ="https://www.amazon.es/s/ref=nb_sb_noss_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=[KEYWORD]"
+    const searchProduct = req.body.productSearch
 
-	const amazonUrl = url.replace('[KEYWORD]', searchProduct)
+    const url = "https://www.amazon.es/s/ref=nb_sb_noss_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=[KEYWORD]"
 
-	request(amazonUrl, (err, res, body) => {
+    const amazonUrl = url.replace('[KEYWORD]', searchProduct)
 
-		var $ = cheerio.load(body);
+    request(amazonUrl, (err, res, body) => {
 
-		$('ul#s-results-list-atf img.s-access-image.cfMarker').each( function(i, elem) {
+        var $ = cheerio.load(body);
 
-			var images = $(this).attr('src')
+        $('ul#s-results-list-atf img.s-access-image.cfMarker').each(function(i, elem) {
 
-			amazonImg.push(images)
-    	});
+            var images = $(this).attr('src')
 
-		console.log(amazonImg);
+            amazonImg.push(images)
+        });
 
-		res.redirect('home')
+        console.log(amazonImg);
 
-    	
+        res.redirect('home')
+
+    })
+
+
 })
-
-
-})
-
-
-
-
-
-
-
-
 
 app.listen(PORT, () => console.log(`listening on PORT ${ PORT }...`))
-  
