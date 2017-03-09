@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prestart": "npm install",
+    "dev": "nodemon app",
     "postinstall": "./node_modules/bower/bin/bower install",
     "start": "node app.js"
   },
