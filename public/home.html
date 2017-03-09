@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Click-counts-app">
 
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,65 +74,105 @@
         <!-- Carousel -->
     </div>
     <!-- third section -->
-    <div class="container">
-        <nav id="results-bar" class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <p id="result">RESULTADOS DE BUSQUEDA...</p>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <div id="amazonProducts" class="jumbotron">
-            <div id="amazonImages" class="container">
-                <img class="amazon-logo" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRr7R0gbTbjOLwbfrQ3s1Ncp9ose_GbgLnmZcwJOeYDeCdPJjwVNg">
-                <ul>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                </ul>
-            </div>
-        </div>
-        <div id="aliProducts" class="jumbotron">
-            <div id="aliImages" class="container">
-                <img class="ali-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCF1sgGv9D6TiQsI7kh2tiwPdektQrAs-iEJUIp5yT1edwNbRNQ">
-                <ul>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                </ul>
-            </div>
-        </div>
-        <div id="ebayProducts" class="jumbotron">
-            <div id="ebayImages" class="container">
-                <img class="ebay-logo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQVuv4ejgqLdzx5NBuxYVKo2eHsLxp4jrGaOZ03Kr1X2u34lEMuMg">
-                <ul>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                    <li><img src="http://consejosparaahorrar.net/wp-content/uploads/2016/03/amazon-descuentos-limpieza.jpg" alt=""></li>
-                </ul>
-            </div>
-        </div>
+    <div>
+    	<ng-view></ng-view>
     </div>
     <!-- Site footer -->
-    <div>
-        <footer class="footer">
-            <p>&copy; 2016 Company, Inc.</p>
-        </footer>
-    </div>
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li>
+                                <div class="input-append newsletter-box text-center">
+                                    <input type="text" class="full text-center" placeholder="Email ">
+                                    <button class="btn  bg-gray" type="button"> Lorem ipsum <i class="fa fa-long-arrow-right"> </i> </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="social">
+                            <li>
+                                <a href="#"> <i class=" fa fa-facebook">   </i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fa fa-twitter">   </i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fa fa-google-plus">   </i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fa fa-pinterest">   </i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fa fa-youtube">   </i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left"> Copyright © Footer 2014. All right reserved. </p>
+                <div class="pull-right">
+                    <ul class="nav nav-pills payments">
+                        <li><i class="fa fa-cc-visa"></i></li>
+                        <li><i class="fa fa-cc-mastercard"></i></li>
+                        <li><i class="fa fa-cc-amex"></i></li>
+                        <li><i class="fa fa-cc-paypal"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/.footer-bottom-->
+    </footer>
     <!--     </div> -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
