@@ -6,14 +6,18 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 
+
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
-
-app.get('/', function (req, res){
+app.get('/', function(req, res){
 	res.redirect('login')
+})
+
+app.get('/login', function (req, res){
+	res.redirect('home')
 })
 
 var amazonImg = [];
