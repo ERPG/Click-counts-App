@@ -44,7 +44,7 @@ app.post('/home/find', function(req, res) {
 
         console.log(amazonImg);
 
-        res.redirect('home')
+        res.redirect('home.html')
 
     })
 
