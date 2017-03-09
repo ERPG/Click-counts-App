@@ -45,7 +45,7 @@ app.post('/home/find', function(req, res) {
         console.log(amazonImg);
     })
 
-    res.redirect('/')
+    res.render('home.html')
 })
 
 app.listen(PORT, () => console.log(`listening on PORT ${ PORT }...`))
