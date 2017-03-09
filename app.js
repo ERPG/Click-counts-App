@@ -13,13 +13,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 app.get('/', function(req, res) {
-	console.log('step1');
-    res.redirect('login')
+    res.redirect('login.html')
 })
 
-app.post('/login', function(req, res) {
-	console.log('step2');
-    res.redirect('home')
+app.get('/login', function(req, res) {
+    res.redirect('home.html')
 })
 
 var amazonImg = [];
