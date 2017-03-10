@@ -2,15 +2,15 @@ angular.module('Click-counts-app', ['ngRoute'])
 	.config( function ($routeProvider){
 
 		$routeProvider
-			.when('/home', {
-				templateUrl: '/public/home.html',
+			.when('/', {
+				templateUrl: '/home.html',
 				controller: 'homeController'
 			})
 			.when('/login', {
-				templateUrl: '/public/login.html',
+				templateUrl: '/login.html',
 				controller: 'loginController'
 			})
-			otherwise('/home')
+			.otherwise('/login')
 	})
 
 .controller('homeController', function($scope){})
@@ -18,6 +18,4 @@ angular.module('Click-counts-app', ['ngRoute'])
 
 
 
-.factory('DataFactory', function($http){
-	
-})
+.factory('DataFactory', function($http){})
