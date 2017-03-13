@@ -1,4 +1,4 @@
-<nav ng-show="SectionHome" id="homeNavbar"  class="navbar navbar-inverse navbar-fixed-top">
+<nav ng-show="SectionHome" id="homeNavbar" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,7 +13,7 @@
         </div>
         <form id="findForm" method="POST" class="navbar-form navbar-left" role="form" ng-submit="getSearch($event)">
             <div class="form-group">
-                <input class="inputSearch" type="text" class="form-control" placeholder="Find your product..." ng-model="product">
+                <input class="inputSearch" type="text" class="form-control" name="productSearch" placeholder="Find your product..." ng-model="SearchProduct">
             </div>
             <button type="submit" class="findButton btn btn-default">Find</button>
         </form>
@@ -29,7 +29,8 @@
 </nav>
 <!-- second Section -->
 <div ng-show="SectionHome" id="secondContainer">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -59,7 +60,53 @@
     <!-- Carousel -->
 </div>
 <!-- third section -->
-<div ng-show='!SectionSearch'></div>
+<div class="container" ng-show='SectionSearch'>
+    <div>
+        <nav id="results-bar" class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p id="result">RESULTADOS DE BUSQUEDA...</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h2>AMAZON</h2>
+    <div ng-repeat="product in products" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ product.images }}" alt="...">
+                    <div class="caption">
+                        <h3>{{ product.description }}</h3>
+                        <p>{{ product.price }}</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>ALIEXPRESS</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="..." alt="...">
+                    <div class="caption">
+                        <h3>Description</h3>
+                        <p>Price</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Site footer -->
 <footer ng-show="SectionHome">
     <div class="footer" id="footer">
@@ -150,3 +197,9 @@
     </div>
     <!--/.footer-bottom-->
 </footer>
+
+<script>
+    $('.carousel').carousel({
+        interval: 3000
+    })
+    </script>
