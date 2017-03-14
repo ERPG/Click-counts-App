@@ -19,8 +19,15 @@ angular.module('Click-counts-app', ['ngRoute'])
 
     $scope.getSearch = function(e) {
         e.preventDefault()
-        $scope.SectionSearch = true
         DataFactory.getSearch($scope.SearchProduct)
+            .then(function(response){
+                console.log(response)
+                $scope.SectionSearch = true
+                $scope.corteIProducts = response.data.results[0]
+                $scope.fnacProducts = response.data.results[1]
+                $scope.carrefProducts = response.data.results[2]
+                $scope.ebayProducts = response.data.results[3][0].findItemsByKeywordsResponse[0].searchResult[0].item
+            })
     }
 })
 
@@ -30,17 +37,16 @@ angular.module('Click-counts-app', ['ngRoute'])
 
 })
 
-
 .factory('DataFactory', function($http, $rootScope) {
 
-    function getSearch() {
-        return $http.post('/api/search')
-            .then((  { data } ) => data )
-            .then( products => $rootScope.products = products)
-    }
-    return {
-    getSearch: getSearch
+    function getSearch(searchQuery) {
+        console.log(searchQuery)
+        return $http.post('/api/search', { searchQuery })
 
-    } 
+    }
+
+    return {
+        getSearch: getSearch
+    }
 
 })
