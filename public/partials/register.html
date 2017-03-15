@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <h2 class="imgTitle"><img id="registerLogo" src="http://i67.tinypic.com/978bvd.png"></h2>
+        <form class="form-horizontal" ng-submit="register()">
+            <fieldset>
+                <!-- Form Name -->
+                <h1 class="legend">Register Here!!</h1>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">First Name</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" placeholder="Insert your First Name" class="form-control input-md" required="" type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Last Name</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" placeholder="Insert your Last Name" class="form-control input-md" required="" type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Email</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" placeholder="Insert your Email" class="form-control input-md" required="" ng-model="username" type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Password</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" placeholder="Insert your Password" class="form-control input-md" required="" ng-model="Password" type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Confirm Password</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" placeholder="Confirm your Password" class="form-control input-md" required="" type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"> </label>
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <p class="extra-link">Already have an account? <a href="#!/login">Log In here</a></p>
+    </div>
+</div>

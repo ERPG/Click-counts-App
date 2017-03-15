@@ -1,0 +1,95 @@
+<div ng-controller="homeController" id="searchContainer" class="container" ng-show='SectionSearch'>
+    <div>
+        <nav id="results-bar" class="navbar navbar-default">
+            <div id="resultsP" class="container-fluid">
+                <div>
+                    <div>
+                        <p id="result">RESULTADOS DE BUSQUEDA...</p>
+                    </div>
+                    <div>
+                        <ul id="filterResult" class="nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="btn btn-default" type="button" ng-click="quantity()" class="nav-link active">Filter Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-default" type="button" class="nav-link" href="#">Average</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <h2>EBAY</h2>
+    <div id="ebayThumb" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in ebayProducts | limitTo: changeQuantity">
+                <div class="thumbnail">
+                    <img src="{{ product.galleryURL[0] }}" alt="...">
+                    <div class="caption">
+                        <h5>{{ product.title[0] }}</h3>
+                        <p>{{ product.sellingStatus[0].currentPrice[0].__value__ }} EUR</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>CORTE INGLES</h2>
+    <div id="corteInglesThumb" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in corteIProducts | limitTo: changeQuantity">
+                <div class="thumbnail">
+                    <img ng-src="http:{{product.image}}" alt="...">
+                    <div class="caption">
+                        <h3>{{ product.description }}</h3>
+                        <p>{{ product.price }}</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>FNAC</h2>
+    <div id="corteInglesThumb" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3" ng-repeat="product in fnacProducts | limitTo: changeQuantity">
+                <div class="thumbnail">
+                    <img src="{{ product.image }}" alt="...">
+                    <div class="caption">
+                        <h3>{{ product.description }}</h3>
+                        <p>{{ product.price }}</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>CARREFOUR</h2>
+    <div id="corteInglesThumb" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in carrefProducts | limitTo: changeQuantity">
+                <div class="thumbnail">
+                    <img ng-src="http:{{ product.image }}" alt="...">
+                    <div class="caption">
+                        <h3>{{ product.description }}</h3>
+                        <p>{{ product.price }}</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

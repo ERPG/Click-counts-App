@@ -1,4 +1,5 @@
 $break-medium: 765px
+$slogan-font: monospace
 
 /*-------------login styles--------------*/
 h1#welcome
@@ -7,7 +8,7 @@ h1#welcome
 h2#slogan
 	text-align: center
 	margin-bottom: 30px
-	font-family: monospace
+	font-family: $slogan-font
 	color: crimson
 	font-size: xx-large
 
@@ -20,6 +21,15 @@ i#facebook
 
 img#loginLogo
 	height: 200px
+
+img#registerLogo
+	height: 200px
+
+.legend
+	text-align: center
+
+h2.imgTitle
+	text-align: center
 
 form#loginForm
 	width: 333px
@@ -90,7 +100,11 @@ nav#results-bar
 	border: 1px solid
 
 ul#filterResult
-	display: inline-block
+	width: 130px
+	height: 100%
+	display: flex
+	li
+		margin-left: 5px
 
 /*-------------ebay section--------------*/
 
@@ -254,8 +268,11 @@ div#corteInglesThumb
 	div#secondContainer
 		margin-top: 204px
 	img#loginLogo
-		width: 100%
+		width: 70%
 		height: 100px
+	img#registerLogo
+		height: 100px
+		width: 70%
 
 
 

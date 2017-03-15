@@ -1,52 +1,42 @@
-angular.module('Click-counts-app', ['ngRoute'])
+angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
+    .config(function($httpProvider) {
+        $httpProvider.interceptors.push('AuthInterceptor')
+    })
     .config(function($routeProvider) {
-
         $routeProvider
             .when('/login', {
-                templateUrl: '/login.html',
+                templateUrl: '/partials/login.html',
                 controller: 'loginController'
             })
             .when('/', {
-                templateUrl: '/home.html',
+                templateUrl: '/partials/home.html',
                 controller: 'homeController'
+            })
+            .when('/register', {
+                templateUrl: '/partials/register.html',
+                controller: 'registerController'
+            })
+            .when('/private', {
+                templateUrl: '/partials/private.html',
+                controller: 'privateController',
+                resolve: {
+                    'auth': AuthFactory => AuthFactory.isLoggedIn()
+                }
             })
             .otherwise('/')
     })
 
-.controller('homeController', function($scope, $rootScope, DataFactory) {
 
-    $rootScope.SectionHome = true
+.run(function($rootScope, $location, StorageFactory, AuthFactory) {
 
-    $scope.getSearch = function(e) {
-        e.preventDefault()
-        DataFactory.getSearch($scope.SearchProduct)
-            .then(function(response){
-                console.log(response)
-                $scope.SectionSearch = true
-                $scope.corteIProducts = response.data.results[0]
-                $scope.fnacProducts = response.data.results[1]
-                $scope.carrefProducts = response.data.results[2]
-                $scope.ebayProducts = response.data.results[3][0].findItemsByKeywordsResponse[0].searchResult[0].item
-            })
-    }
-})
-
-.controller('loginController', function($scope, $rootScope) {
-
-    $scope.SectionLogin = true
-
-})
-
-.factory('DataFactory', function($http, $rootScope) {
-
-    function getSearch(searchQuery) {
-        console.log(searchQuery)
-        return $http.post('/api/search', { searchQuery })
-
+    if (AuthFactory.isLoggedIn()) {
+        const token = StorageFactory.readToken()
+        AuthFactory.setCredentials(token)
     }
 
-    return {
-        getSearch: getSearch
-    }
-
+    $rootScope.$on('$routeChangeError', function(next, current, previous, rejection) {
+        if (rejection === 'Not Authenticated') {
+            $location.path('/login');
+        }
+    })
 })

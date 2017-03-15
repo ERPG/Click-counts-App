@@ -21,9 +21,9 @@
     </div>
     <div id="tools-bar">
         <div class="btn-group">
-            <button type="button" class="btn btn-default">Hola..! (Ernesto)</button>
-            <button type="button" class="btn btn-default">Notificaciones</button>
-            <button type="button" class="btn btn-default">Herramientas</button>
+            <button type="button" href="#!/register" class="btn btn-default">Sign Up!</button>
+            <button type="button" class="btn btn-default">Notifications</button>
+            <button type="button" class="btn btn-default">Tools</button>
         </div>
     </div>
 </nav>
@@ -58,102 +58,9 @@
     </div>
     <!-- Carousel -->
 </div>
-<!-- third section -->
-<div id="searchContainer" class="container" ng-show='SectionSearch'>
-    <div>
-        <nav id="results-bar" class="navbar navbar-default">
-            <div id="resultsP" class="container-fluid">
-                <div class="navbar-header">
-                    <div>
-                        <p id="result">RESULTADOS DE BUSQUEDA...</p>
-                    </div>
-                    <div>
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Filter Results</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Average</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <h2>EBAY</h2>
-    <div id="ebayThumb" class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat="product in ebayProducts">
-                <div class="thumbnail">
-                    <img src="{{ product.galleryURL[0] }}" alt="...">
-                    <div class="caption">
-                        <h5>{{ product.title[0] }}</h3>
-                        <p>{{ product.sellingStatus[0].currentPrice[0].__value__ }} EUR</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>CORTE INGLES</h2>
-    <div id="corteInglesThumb" class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat="product in corteIProducts">
-                <div class="thumbnail">
-                    <img ng-src="http:{{product.image}}" alt="...">
-                    <div class="caption">
-                        <h3>{{ product.description }}</h3>
-                        <p>{{ product.price }}</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>FNAC</h2>
-    <div id="corteInglesThumb" class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-3" ng-repeat="product in fnacProducts">
-                <div class="thumbnail">
-                    <img src="{{ product.image }}" alt="...">
-                    <div class="caption">
-                        <h3>{{ product.description }}</h3>
-                        <p>{{ product.price }}</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2>CARREFOUR</h2>
-    <div id="corteInglesThumb" class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat="product in carrefProducts">
-                <div class="thumbnail">
-                    <img ng-src="http:{{ product.image }}" alt="...">
-                    <div class="caption">
-                        <h3>{{ product.description }}</h3>
-                        <p>{{ product.price }}</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- third section (Results) -->
+<div id="searchContainer" class="container" ng-include="'search.html'"></div>
+<div ng-include="''"></div>
 <!-- Site footer -->
 <footer ng-show="SectionHome">
     <div class="footer" id="footer">
