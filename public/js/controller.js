@@ -1,5 +1,5 @@
 angular.module('Click-counts-app')
-  .controller('loginController', function($scope, $location, AuthFactory) {
+  .controller('loginController', function($scope, $location, AuthFactory, rootScope) {
     // $scope.SectionLogin = true
     $scope.login = function() {
       const username = $scope.username
@@ -10,9 +10,8 @@ angular.module('Click-counts-app')
     }
 
   })
-  .controller('registerController', function($scope, AuthFactory) {
+  .controller('registerController', function($scope, AuthFactory, rootScope) {
     // $scope.SectionRegister = true
-    console.log('step222');
     $scope.register = function() {
       const username = $scope.username
       const password = $scope.password
@@ -26,10 +25,12 @@ angular.module('Click-counts-app')
       $location.path('/private');
     }
   })
-  .controller('privateController', function($scope, auth, DataFactory) {
-    console.log(auth)
+  .controller('privateController', function($scope, auth, DataFactory, $rootScope) {
+
+    $rootScope.SectionPrivate = true
+
     DataFactory.getPrivateData()
-      .then( ({ message }) => $scope.message = message )
+      .then( ({ message }) => $scope.message = message)
   })
   .controller('homeController', function($scope, $rootScope, SearchFactory) {
 
@@ -40,7 +41,7 @@ angular.module('Click-counts-app')
         SearchFactory.getSearch($scope.SearchProduct)
             .then(function(response) {
                 console.log(response)
-                $rootScope.SectionSearch = true
+                $scope.SectionSearch = true
                 $scope.corteIProducts = response.data.results[0]
                 $scope.fnacProducts = response.data.results[1]
                 $scope.carrefProducts = response.data.results[2]

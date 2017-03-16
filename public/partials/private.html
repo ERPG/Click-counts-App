@@ -1,8 +1,8 @@
-<div class="container">
+<div ng-show="SectionPrivate" class="container">
     <div id="privateSection">
         <h1>Profile Section</h1>
         <div class="alert alert-success">
-            <p><strong>You are logged!</strong>: {{ message }}</p>
+            <p><strong>You are logged!</strong> {{ message }} {{username}}</p>
         </div>
     </div>
     <div class="page-footer container profileSection">
@@ -10,10 +10,8 @@
             <img class="img-circle" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" />
         </div>
         <div class="container usernameParagraphs">
-            <p class="lead">USERNAME: </p>
-            <p>{{ username }}</p>
-            <p class="lead">EMAIL: </p>
-            <p>{{ username }}</p>
+            <p class="lead">USERNAME: </p><p>{{ username }}</p>
+            <p class="lead">EMAIL: </p><p>{{ username }}</p>
             <a href="#!/">Go to Home</a>
         </div>
     </div>
