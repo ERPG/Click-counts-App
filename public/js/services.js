@@ -27,6 +27,7 @@ angular.module('Click-counts-app')
 
     function login(credentials) {
       const url = '/api/login'
+      console.log('step555');
       return $http.post(url, credentials)
         .then( response => response.data.token )
         .then( token => {
@@ -37,6 +38,7 @@ angular.module('Click-counts-app')
 
     function register(credentials) {
       const url = '/api/register'
+      console.log('step111');
       return $http.post(url, credentials)
         .then( $location.path("/login") )
     }

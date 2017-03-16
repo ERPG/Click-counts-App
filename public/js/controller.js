@@ -12,6 +12,7 @@ angular.module('Click-counts-app')
   })
   .controller('registerController', function($scope, AuthFactory) {
     // $scope.SectionRegister = true
+    console.log('step222');
     $scope.register = function() {
       const username = $scope.username
       const password = $scope.password
@@ -25,7 +26,7 @@ angular.module('Click-counts-app')
       $location.path('/private');
     }
   })
-  .controller('PrivateCtrl', function($scope, auth, DataFactory) {
+  .controller('privateController', function($scope, auth, DataFactory) {
     console.log(auth)
     DataFactory.getPrivateData()
       .then( ({ message }) => $scope.message = message )
@@ -39,7 +40,7 @@ angular.module('Click-counts-app')
         SearchFactory.getSearch($scope.SearchProduct)
             .then(function(response) {
                 console.log(response)
-                $scope.SectionSearch = true
+                $rootScope.SectionSearch = true
                 $scope.corteIProducts = response.data.results[0]
                 $scope.fnacProducts = response.data.results[1]
                 $scope.carrefProducts = response.data.results[2]

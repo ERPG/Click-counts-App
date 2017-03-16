@@ -40,3 +40,4 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
         }
     })
 })
+

@@ -8,6 +8,9 @@ function login(req, res) {
     const token = jwt.sign( { id }, SECRET );
     res.json({success: true, token: 'JWT ' + token});
 
+    console.log(token + ' token');
+
+
 }
 
 module.exports = login
