@@ -1,4 +1,4 @@
-  <nav ng-controller="homeController" ng-hide="cleanView" id="homeNavbar" class="navbar navbar-inverse navbar-fixed-top">
+  <nav ng-hide="cleanView" id="homeNavbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -11,7 +11,7 @@
                     <img id="logoImg" src="http://i67.tinypic.com/978bvd.png" alt="">
                 </a>
             </div>
-            <form id="findForm" method="POST" class="navbar-form navbar-left" role="form" ng-submit="getSearch($event)">
+            <form ng-controller="searchController" id="findForm" method="POST" class="navbar-form navbar-left" role="form" ng-submit="getSearch($event)">
                 <div class="form-group">
                     <input class="inputSearch" type="text" class="form-control" placeholder="Find your product..." ng-model="SearchProduct">
                 </div>

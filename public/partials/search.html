@@ -1,4 +1,6 @@
-<div ng-controller="homeController" ng-show='SectionSearch' id="searchContainer" class="container">
+<div ng-include="'/partials/home.html'"></div>
+
+<div ng-controller="searchController" ng-show='SectionSearch' id="searchContainer" class="container">
     <div>
         <nav id="results-bar" class="navbar navbar-default">
             <div id="resultsP" class="container-fluid">

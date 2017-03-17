@@ -23,6 +23,10 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
                     'auth': AuthFactory => AuthFactory.isLoggedIn()
                 }
             })
+            .when('/search/:query', {
+                templateUrl: '/partials/search.html',
+                controller: 'searchController'
+            })
             .when('/charts', {
                     templateUrl: '/partials/graphics.html',
                     controller: 'graphicsController'

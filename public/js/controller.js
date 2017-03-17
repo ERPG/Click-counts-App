@@ -1,4 +1,6 @@
 angular.module('Click-counts-app')
+    
+    .controller('homeController', function($scope, $rootScope, SearchFactory) {})
 
     .controller('loginController', function($scope, $location, AuthFactory, $rootScope) {
         $rootScope.cleanView = true
@@ -33,15 +35,14 @@ angular.module('Click-counts-app')
         DataFactory.getPrivateData()
             .then(({ message }) => $scope.message = message )
     })
-    .controller('homeController', function($scope, $rootScope, SearchFactory) {
-
-
+    .controller('searchController', function($scope, $rootScope, SearchFactory, $location) {
         $scope.getSearch = (e) => {
             e.preventDefault()
             const SearchProduct = $scope.SearchProduct
             SearchFactory.getSearch($scope.SearchProduct)
                 .then(function(response) {
                     // console.log(response)
+                    $location.path('/search/'+SearchProduct)
                     $rootScope.SectionSearch = true
                     $rootScope.corteIProducts = response.data.results[0]
                     $rootScope.fnacProducts = response.data.results[1]
@@ -81,3 +82,4 @@ angular.module('Click-counts-app')
                         }
 
     })
+
