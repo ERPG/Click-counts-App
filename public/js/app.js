@@ -4,13 +4,13 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
     })
     .config(function($routeProvider) {
         $routeProvider
-            .when('/login', {
-                templateUrl: '/partials/login.html',
-                controller: 'loginController'
-            })
             .when('/', {
                 templateUrl: '/partials/home.html',
                 controller: 'homeController'
+            })
+            .when('/login', {
+                templateUrl: '/partials/login.html',
+                controller: 'loginController'
             })
             .when('/register', {
                 templateUrl: '/partials/register.html',
@@ -23,6 +23,10 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
                     'auth': AuthFactory => AuthFactory.isLoggedIn()
                 }
             })
+            .when('/charts', {
+                    templateUrl: '/partials/graphics.html',
+                    controller: 'graphicsController'
+                })
             .otherwise('/')
     })
 
@@ -40,4 +44,3 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
         }
     })
 })
-

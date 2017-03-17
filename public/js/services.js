@@ -27,7 +27,6 @@ angular.module('Click-counts-app')
 
     function login(credentials) {
       const url = '/api/login'
-      console.log('step555');
       return $http.post(url, credentials)
         .then( response => response.data.token )
         .then( token => {
@@ -68,6 +67,7 @@ angular.module('Click-counts-app')
     return { login, register, logout, isLoggedIn, setCredentials }
 
   })
+  
   .factory('StorageFactory', function ($window){
 
     const store = $window.localStorage;

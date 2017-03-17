@@ -1,4 +1,4 @@
-<div ng-show='SectionSearch' ng-controller="homeController" id="searchContainer" class="container">
+<div ng-controller="homeController" ng-show='SectionSearch' id="searchContainer" class="container">
     <div>
         <nav id="results-bar" class="navbar navbar-default">
             <div id="resultsP" class="container-fluid">
@@ -12,7 +12,7 @@
                                 <a class="btn btn-default" type="button" ng-click="quantity()" class="nav-link active">Filter Results</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-default" type="button" class="nav-link" href="#">Average</a>
+                                <a class="btn btn-default" type="button" class="nav-link" ng-click="averages()" href="#!/charts">Average</a>
                             </li>
                         </ul>
                     </div>
