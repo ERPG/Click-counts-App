@@ -1,0 +1,26 @@
+
+
+<div ng-show="searchBar" class="container">
+    <nav id="results-bar" class="navbar navbar-default">
+        <div id="resultsP" class="container-fluid">
+            <div>
+                <div>
+                    <p id="result">RESULTADOS DE BUSQUEDA...</p>
+                </div>
+                <div>
+                    <ul id="filterResult" class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="btn btn-default" type="button class="nav-link href="#!/search/:query" active">Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-default" type="button" ng-click="quantity()" class="nav-link active">Show more Results</a>
+                        </li>
+                        <li id="average" class="nav-item">
+                            <a class="btn btn-default" type="button" class="nav-link" href="#!/charts">Average</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

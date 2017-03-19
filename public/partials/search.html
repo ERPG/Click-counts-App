@@ -1,27 +1,6 @@
-<div ng-include="'/partials/home.html'"></div>
 
 <div ng-controller="searchController" ng-show='SectionSearch' id="searchContainer" class="container">
-    <div>
-        <nav id="results-bar" class="navbar navbar-default">
-            <div id="resultsP" class="container-fluid">
-                <div>
-                    <div>
-                        <p id="result">RESULTADOS DE BUSQUEDA...</p>
-                    </div>
-                    <div>
-                        <ul id="filterResult" class="nav justify-content-end">
-                            <li class="nav-item">
-                                <a class="btn btn-default" type="button" ng-click="quantity()" class="nav-link active">Filter Results</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-default" type="button" class="nav-link" ng-click="averages()" href="#!/charts">Average</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <div ng-include="'/partials/searchBar.html'"></div>
     <h2>EBAY</h2>
     <div id="ebayThumb" class="container">
         <div class="row">
@@ -31,10 +10,20 @@
                     <div class="caption">
                         <h5>{{ product.title[0] }}</h3>
                         <p>{{ product.sellingStatus[0].currentPrice[0].__value__ }} EUR</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <div class="stars">
+                          <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                          </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,17 +38,25 @@
                     <div class="caption">
                         <h3>{{ product.description }}</h3>
                         <p>{{ product.price }}</p>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                          </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <h2>FNAC</h2>
-    <div id="corteInglesThumb" class="container">
+    <div id="fnacThumb" class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3" ng-repeat="product in fnacProducts | limitTo: changeQuantity">
                 <div class="thumbnail">
@@ -77,7 +74,7 @@
         </div>
     </div>
     <h2>CARREFOUR</h2>
-    <div id="corteInglesThumb" class="container">
+    <div id="carrefourThumb" class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in carrefProducts | limitTo: changeQuantity">
                 <div class="thumbnail">
@@ -95,3 +92,4 @@
         </div>
     </div>
 </div>
+<div ng-include="'/partials/home.html'"></div>

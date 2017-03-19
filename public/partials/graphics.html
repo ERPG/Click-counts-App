@@ -1,5 +1,52 @@
-<div ng-include="'/partials/home.html'"></div>
-<div>
+
+
+
+<div id="graphicsContainer" class="container">
+	<div ng-include="'/partials/searchBar.html'"></div>
+	<h3>Visual Average for the Prices of your Product</h3>
+	<p>Click Here to See the Prices ==> <button ng-click="averages()">Load</button></p>
     <div id="main-chart"></div>
-    <h1>THIS IS GRAPHICS</h1>
-</div>
+    <nav id="results-bar" class="navbar navbar-default">
+        <div id="resultsP" class="container-fluid">
+            <div class="container">
+                <div>
+                    <p class="secondBarChart">Number Averages of your Products</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+    	<div class="col-xs-6 col-md-3">
+    		<div>
+    			<img class="averageImg" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT591yizU-cIyJrd-BtCfQGd49GFWE9DcXioG5FUGAYEdg8JQOg" alt="">
+    		</div>
+    		<div>
+    			<p>Average: </p>
+    		</div>
+    	</div>
+    	<div class="col-xs-6 col-md-3">
+    		<div>
+    			<img class="averageImg" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDeUNmvUOtHeceeuu8GCM-efKgN5XbIrwg6FGo3oOCPrPMSCm6" alt="">
+    		</div>
+    		<div>
+    			<p>Average: </p>
+    		</div>
+    	</div>
+    	<div class="col-xs-6 col-md-3">
+    		<div>
+    			<img class="averageImg" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTVFCyedwexHR9zJCjhlsWlm2NHdr-VRvaMoOB18bOY0RcaTnHV" alt="">
+    		</div>
+    		<div>
+    			<p>Average: </p>
+    		</div>
+    	</div>
+    	<div class="col-xs-6 col-md-3">
+    		<div>
+    			<img class="averageImg" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ8VcYkkGhyDyWTHYKkzYAfG1ddTnYsWX7Vu-ZCsmvZa1yzq1V9" alt="">
+    		</div>
+    		<div>
+    			<p>Average: </p>
+    		</div>
+    	</div>
+    </div>
+

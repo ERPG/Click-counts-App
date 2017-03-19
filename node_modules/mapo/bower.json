@@ -1,0 +1,16 @@
+{
+  "name": "mapo",
+  "main": "src/mapo.js",
+  "version": "0.0.0",
+  "description": "map(func) for objects that returns objects instead of arrays",
+  "dependencies": {
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "requirejs": "*",
+    "requirejs-text": "*",
+    "underscore": "*",
+    "jquery": "*",
+    "qunit": "*"
+  }
+}

@@ -16,13 +16,6 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
                 templateUrl: '/partials/register.html',
                 controller: 'registerController'
             })
-            .when('/private', {
-                templateUrl: '/partials/private.html',
-                controller: 'privateController',
-                resolve: {
-                    'auth': AuthFactory => AuthFactory.isLoggedIn()
-                }
-            })
             .when('/search/:query', {
                 templateUrl: '/partials/search.html',
                 controller: 'searchController'
@@ -30,7 +23,15 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
             .when('/charts', {
                     templateUrl: '/partials/graphics.html',
                     controller: 'graphicsController'
-                })
+            })
+            .when('/private', {
+                templateUrl: '/partials/private.html',
+                controller: 'privateController',
+                resolve: {
+                    'auth': AuthFactory => AuthFactory.isLoggedIn()
+                }
+            })
+
             .otherwise('/')
     })
 

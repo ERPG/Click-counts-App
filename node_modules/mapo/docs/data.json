@@ -1,0 +1,33 @@
+{
+    "project": {
+        "name": "mapo",
+        "version": "0.0.0"
+    },
+    "files": {
+        "src/mapo.js": {
+            "name": "src/mapo.js",
+            "modules": {
+                "Mapo": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Mapo": {
+            "name": "Mapo",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/mapo.js",
+            "line": 5,
+            "description": "AMD and CJS module."
+        }
+    },
+    "classes": {},
+    "classitems": [],
+    "warnings": []
+}
