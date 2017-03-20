@@ -13,7 +13,7 @@
             $('div.producto').each(function(i, elem) {
 
                 const image = $(this).find('img.img-producto').attr('src') || imgNoDisp
-                const price = $(this).find('p.precio-nuevo').text() + ' - ' || ' No Available'
+                const price = $(this).find('p.precio-nuevo').text() || ' No Available'
                 const description = $(this).find('h2.titular-producto').text()
                 const link = $(this).find('a.track-click.imagenes-productos.enlace-producto').attr('href')
 

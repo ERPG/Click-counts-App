@@ -13,7 +13,7 @@
             $('.list-item.item.producto.clear').each(function(i, elem) {
 
                 const image = $(this).find('a.img-container').find('img').attr('src') || imgNoDisp
-                const price = $(this).find('span.standard-list-price-no-iva').text() + ' - ' || ' No Available'
+                const price = $(this).find('span.standard-list-price-no-iva').text() || ' No Available'
                 const description = $(this).find('h2.titulo').find('a.js-item-link').text()
                 const link = $(this).find('h2.titulo').find('a.js-item-link').attr('href')
 
@@ -21,7 +21,7 @@
 
             })
 
-            console.log(productsFound + ', ' + ' soloStock')
+            // console.log(productsFound + ', ' + ' soloStock')
 
             return productsFound
 

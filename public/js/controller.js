@@ -49,11 +49,11 @@ angular.module('Click-counts-app')
                     console.log(response)
                     $location.path('/search/' + SearchProduct)
                     $rootScope.SectionSearch = true
-                    $rootScope.corteIProducts = response.data.results[0]
-                    $rootScope.fnacProducts = response.data.results[1]
-                    $rootScope.carrefProducts = response.data.results[2]
-                    $rootScope.ebayProducts = response.data.results[3].findItemsByKeywordsResponse[0].searchResult[0].item
-                    $rootScope.soloProducts = response.data.results[4]
+                    $rootScope.corteIProducts = response.data[0]
+                    $rootScope.fnacProducts = response.data[1]
+                    $rootScope.carrefProducts = response.data[2]
+                    $rootScope.ebayProducts = response.data[3]
+                    $rootScope.soloProducts = response.data[4]
                 })
         }
 
@@ -66,7 +66,7 @@ angular.module('Click-counts-app')
 
     $scope.searchBar = true
 
-    const corteIPrices = $rootScope.corteIProducts.map((elem) => {
+    const corteIPrices = $rootScope.corteIProducts.splice(0,1).map((elem) => {
         return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
     })
     const carrefPrices = $rootScope.carrefProducts.map((elem) => {
@@ -93,7 +93,14 @@ angular.module('Click-counts-app')
                     ['Carrefour'],
                     ['Fnac'],
                     ['Ebay']
-                ]
+                ],
+                type: 'bar',
+                        groups: [
+                            ['ebay'],
+                            ['Corte Ingles'],
+                            [ 'Carrefour'],
+                            ['Fnac']
+        ]
             },
         });
 
