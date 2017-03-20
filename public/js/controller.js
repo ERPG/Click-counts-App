@@ -46,13 +46,14 @@ angular.module('Click-counts-app')
             const SearchProduct = $scope.SearchProduct
             SearchFactory.getSearch($scope.SearchProduct)
                 .then(function(response) {
-                    // console.log(response)
+                    console.log(response)
                     $location.path('/search/' + SearchProduct)
                     $rootScope.SectionSearch = true
                     $rootScope.corteIProducts = response.data.results[0]
                     $rootScope.fnacProducts = response.data.results[1]
                     $rootScope.carrefProducts = response.data.results[2]
                     $rootScope.ebayProducts = response.data.results[3].findItemsByKeywordsResponse[0].searchResult[0].item
+                    $rootScope.soloProducts = response.data.results[4]
                 })
         }
 
@@ -66,18 +67,20 @@ angular.module('Click-counts-app')
     $scope.searchBar = true
 
     const corteIPrices = $rootScope.corteIProducts.map((elem) => {
-        return parseInt(elem.price.replace(/[^0-9-,]|€|-/g, '')) || 0
+        return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
     })
     const carrefPrices = $rootScope.carrefProducts.map((elem) => {
         return parseInt(elem.price.replace(/[^0-9-,]|€|-/g, '')) || 0
     })
     const fnacPrices = $rootScope.fnacProducts.map((elem) => {
-        return parseInt(elem.price.replace(/[^0-9-,]|€|-/g, '')) || 0
+        return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
     })
     const ebayPrices = $rootScope.ebayProducts.map( (elem)=> {
         return parseInt(elem.sellingStatus[0].currentPrice[0].__value__)
     })
-    console.log();
+    console.log(corteIPrices)
+    console.log(carrefPrices)
+    console.log(fnacPrices)
     console.log(ebayPrices)
 
     $scope.averages = () => {

@@ -1,7 +1,6 @@
-
 <div ng-controller="searchController" ng-show='SectionSearch' id="searchContainer" class="container">
     <div ng-include="'/partials/searchBar.html'"></div>
-    <h2>EBAY</h2>
+    <h2>EBAY  <img class="averageImg" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ8VcYkkGhyDyWTHYKkzYAfG1ddTnYsWX7Vu-ZCsmvZa1yzq1V9" alt=""></h2>
     <div id="ebayThumb" class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in ebayProducts | limitTo: changeQuantity">
@@ -11,27 +10,18 @@
                         <h5>{{ product.title[0] }}</h3>
                         <p>{{ product.sellingStatus[0].currentPrice[0].__value__ }} EUR</p>
                         <div class="stars">
-                          <form action="">
-                            <input class="star star-5" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-                          </form>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <h2>CORTE INGLES</h2>
-    <div id="corteInglesThumb" class="container">
-        <div class="row">
+    <h2>FNAC  <img class="averageImg" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDeUNmvUOtHeceeuu8GCM-efKgN5XbIrwg6FGo3oOCPrPMSCm6" alt=""></h2>
+        <div id="fnacThumb" class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in corteIProducts | limitTo: changeQuantity">
                 <div class="thumbnail">
                     <img ng-src="http:{{product.image}}" alt="...">
@@ -39,24 +29,19 @@
                         <h3>{{ product.description }}</h3>
                         <p>{{ product.price }}</p>
                         <form action="">
-                            <input class="star star-5" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-                          </form>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <h2>FNAC</h2>
-    <div id="fnacThumb" class="container">
+    <div class="container">
+        <h2>CORTE INGLES  <img class="averageImg" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT591yizU-cIyJrd-BtCfQGd49GFWE9DcXioG5FUGAYEdg8JQOg" alt=""></h2>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3" ng-repeat="product in fnacProducts | limitTo: changeQuantity">
                 <div class="thumbnail">
@@ -73,12 +58,34 @@
             </div>
         </div>
     </div>
-    <h2>CARREFOUR</h2>
+    <div class="container">
+        <h2>CARREFOUR  <img class="averageImg" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTVFCyedwexHR9zJCjhlsWlm2NHdr-VRvaMoOB18bOY0RcaTnHV" alt=""></h2>
+    </div>
     <div id="carrefourThumb" class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in carrefProducts | limitTo: changeQuantity">
                 <div class="thumbnail">
                     <img ng-src="http:{{ product.image }}" alt="...">
+                    <div class="caption">
+                        <h3>{{ product.description }}</h3>
+                        <p>{{ product.price }}</p>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>SOLOSTOCK  <img class="averageImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jO2PMAcwt5HSy6NwvuIYHcOF11MsNYkS4kgc1u69FbRqQLTT" alt=""></h2>
+    </div>
+    <div id="soloStockThumb" class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in soloProducts | limitTo: changeQuantity">
+                <div class="thumbnail">
+                    <img ng-src="{{ product.image }}" alt="...">
                     <div class="caption">
                         <h3>{{ product.description }}</h3>
                         <p>{{ product.price }}</p>

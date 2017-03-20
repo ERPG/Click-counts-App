@@ -4,7 +4,6 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const https = require('https')
 const rp = require('request-promise')
-const promise = require('bluebird')
 
 const routesAuth = require('./routers/auth')
 const routesPrivate = require('./routers/private')

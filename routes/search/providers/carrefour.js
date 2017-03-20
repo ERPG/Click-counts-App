@@ -21,7 +21,7 @@
 
             })
 
-            console.log(productsFound + ', ' + 'carrefour')
+            // console.log(productsFound + ', ' + 'carrefour')
 
             return productsFound
 
