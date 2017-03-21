@@ -27,16 +27,17 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
             .when('/private', {
                 templateUrl: '/partials/private.html',
                 controller: 'privateController',
-                resolve: {
-                    'auth': AuthFactory => AuthFactory.isLoggedIn()
-                }
+            })
+            .when('/editProfile', {
+                templateUrl: '/partials/editUser.html',
+                controller: 'editController',
             })
 
             .otherwise('/')
     })
 
 
-.run(function($rootScope, $location, StorageFactory, AuthFactory) {
+.run(function($rootScope, $location, DataFactory, StorageFactory, AuthFactory) {
 
     if (AuthFactory.isLoggedIn()) {
         const token = StorageFactory.readToken()
@@ -47,5 +48,12 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
         if (rejection === 'Not Authenticated') {
             $location.path('/login');
         }
+    })
+
+    $rootScope.$on("userLogged", function (event, id){
+        DataFactory.getUser(id)
+            .then(response => {
+                console.log(response + ' USER DATA BROATCAST')
+            })
     })
 })

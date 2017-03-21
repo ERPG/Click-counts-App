@@ -1,6 +1,34 @@
 angular.module('Click-counts-app')
 
-.controller('homeController', function($scope, $rootScope, SearchFactory) {})
+.controller('homeController', function($scope, $rootScope, DataFactory) {
+
+})
+
+.controller('editController', function($scope, $rootScope, DataFactory, $location) {
+    // $rootScope.EditSection = true
+    // $rootScope.UserSection = true
+
+    const id = $scope.loggedUser.id
+
+    DataFactory.getUser(id)
+        .then(function(user) {
+            $scope.name = user.name
+            $scope.email = user.email
+            $scope.username = user.username
+            $scope.image = user.image
+        })
+
+    $scope.editUser = function(e) {
+        e.preventDefault()
+        const { name, email, image } = $scope
+        DataFactory.editUser(id, email, name, image)
+            .then(user => {
+                $location.path('/private')
+            })
+
+
+    }
+})
 
 .controller('loginController', function($scope, $location, AuthFactory, $rootScope) {
         $rootScope.cleanView = true
@@ -16,10 +44,13 @@ angular.module('Click-counts-app')
     .controller('registerController', function($scope, AuthFactory, $rootScope) {
         $rootScope.cleanView = true
         $scope.register = function() {
-            const username = $rootScope.username
-            const password = $rootScope.password
-            AuthFactory.register({ username, password })
-
+            const username = $scope.username
+            const password = $scope.password
+            const email = $scope.email
+            console.log(email)
+            const name = $scope.name
+            console.log(name)
+            AuthFactory.register({ username, password, name, email })
 
         }
     })
@@ -30,15 +61,29 @@ angular.module('Click-counts-app')
             $location.path('/private');
         }
     })
-    .controller('privateController', function($scope, auth, DataFactory, $rootScope) {
+    .controller('privateController', function($scope, DataFactory, $rootScope) {
+
+        const id = $rootScope.loggedUser.id
+
 
         DataFactory.getPrivateData()
             .then(({ message }) => {
                 $scope.message = message
             })
 
+        DataFactory.getUser(id)
+            .then(function(user) {
+                $scope.name = user.name
+                $scope.email = user.email
+                $scope.username = user.username
+                $scope.image = user.image
+            })
+
     })
     .controller('searchController', function($scope, $rootScope, SearchFactory, $location) {
+
+        console.log($rootScope)
+        const id = $rootScope.loggedUser.id
 
         $scope.searchBar = true
         $scope.getSearch = (e) => {
@@ -46,7 +91,11 @@ angular.module('Click-counts-app')
             const SearchProduct = $scope.SearchProduct
             SearchFactory.getSearch($scope.SearchProduct)
                 .then(function(response) {
-                    console.log(response)
+                    SearchFactory.showQuery(id, SearchProduct)
+                        .then(function(response) {
+                            console.log(response)
+                        })
+                    console.log(response + ' From SearchController')
                     $location.path('/search/' + SearchProduct)
                     $rootScope.SectionSearch = true
                     $rootScope.corteIProducts = response.data[0]
@@ -66,7 +115,7 @@ angular.module('Click-counts-app')
 
     $scope.searchBar = true
 
-    const corteIPrices = $rootScope.corteIProducts.splice(0,1).map((elem) => {
+    const corteIPrices = $rootScope.corteIProducts.splice(0, 1).map((elem) => {
         return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
     })
     const carrefPrices = $rootScope.carrefProducts.map((elem) => {
@@ -75,13 +124,9 @@ angular.module('Click-counts-app')
     const fnacPrices = $rootScope.fnacProducts.map((elem) => {
         return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
     })
-    const ebayPrices = $rootScope.ebayProducts.map( (elem)=> {
+    const ebayPrices = $rootScope.ebayProducts.map((elem) => {
         return parseInt(elem.sellingStatus[0].currentPrice[0].__value__)
     })
-    console.log(corteIPrices)
-    console.log(carrefPrices)
-    console.log(fnacPrices)
-    console.log(ebayPrices)
 
     $scope.averages = () => {
 
@@ -95,21 +140,17 @@ angular.module('Click-counts-app')
                     ['Ebay']
                 ],
                 type: 'bar',
-                        groups: [
-                            ['ebay'],
-                            ['Corte Ingles'],
-                            [ 'Carrefour'],
-                            ['Fnac']
-        ]
+                groups: [
+                    ['ebay'],
+                    ['Corte Ingles'],
+                    ['Carrefour'],
+                    ['Fnac']
+                ]
             },
         });
-
         $scope.chart.load({
             columns: [
-                ['Corte Ingles'].concat(corteIPrices), 
-                ['Carrefour'].concat(carrefPrices),
-                ['Fnac'].concat(fnacPrices),
-                ['Ebay'].concat(ebayPrices)
+                ['Corte Ingles'].concat(corteIPrices), ['Carrefour'].concat(carrefPrices), ['Fnac'].concat(fnacPrices), ['Ebay'].concat(ebayPrices)
             ]
         });
 

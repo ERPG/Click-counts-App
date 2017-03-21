@@ -7,8 +7,15 @@ angular.module('Click-counts-app')
 
     }
 
+    function showQuery(id, query) {
+      const urlQ = `/api/users/${id}`
+      return $http.put(urlQ, { query } )
+              .then( data => console.log(data) ) 
+    }
+
     return {
-        getSearch: getSearch
+        getSearch,
+        showQuery
     }
 
 })
@@ -20,11 +27,28 @@ angular.module('Click-counts-app')
         .then( response => response.data )
     }
 
-    return { getPrivateData }
+    function getUser(id){
+      const urlUser = `/api/users/${id}`
+      return $http.get(urlUser)
+              .then( response => response.data )
+    }
+
+    function editUser(id, email, name, image){
+      const url= `/api/users/edit/${id}`
+      const data = { id, email, name, image }
+      return $http.put(url, data)
+              .then( response => response.data)
+    }
+
+    return { 
+      getPrivateData,
+      getUser,
+      editUser 
+    }
+
 
   })
   .factory('AuthFactory', function($http, $q, $rootScope, $location, StorageFactory, jwtHelper) {
-
     function login(credentials) {
       const url = '/api/login'
       return $http.post(url, credentials)
@@ -37,7 +61,7 @@ angular.module('Click-counts-app')
 
     function register(credentials) {
       const url = '/api/register'
-      console.log('step111');
+      // console.log(credentials);
       return $http.post(url, credentials)
         .then( $location.path("/login") )
     }
@@ -61,6 +85,7 @@ angular.module('Click-counts-app')
     function setCredentials( token ) {
       var tokenPayload = jwtHelper.decodeToken( token )
       $rootScope.loggedUser = tokenPayload;
+      $rootScope.$broadcast("userLogged", tokenPayload.id)
     }
 
 
