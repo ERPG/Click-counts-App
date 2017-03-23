@@ -10,9 +10,9 @@ module.exports = (req, res) => {
 			if(user.querySearch.indexOf(query) !== -1) {
 				res.status(200)
 			} else {
-				User.findByIdAndUpdate(id , {$push: {querySearch: query} } )
+				User.findByIdAndUpdate(id , {'$push': {querySearch: query} } )
 					.then( user => {
-
+						console.log('hola')
       					console.log('User has been updated succesfully')
       				res.status(200)
 			})

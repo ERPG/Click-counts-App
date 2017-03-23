@@ -52,7 +52,7 @@ router.post('/search', function(req, res) {
         // }
 
         function filterOthersPriceOverAverage(elem) { 
-            if ( parseInt(elem.price.replace(/€[\s\S]*$/g, '') ) >= averagePrice) { 
+            if ( parseInt(elem.price.replace(/€[\s\S]*$/g, '')) >= averagePrice) { 
                 return elem 
             }  
         }
@@ -64,17 +64,28 @@ router.post('/search', function(req, res) {
             } 
         }
 
+        function justThree(elem, index) {
+            return index <= 4
+
+        } 
+
         let fnacFiltered = fnac.filter( filterOthersPriceOverAverage )
+                                .filter( justThree )
 
         let CiFiltered = CI.filter( filterOthersPriceOverAverage )
+                                    .filter( justThree )
         console.log(CiFiltered)
 
         let carrefFiltered = carref.filter( filterOthersPriceOverAverage )
+                                    .filter( justThree )
+
         console.log(carrefFiltered)
 
         let ebayFiltered = ebay.filter( filterEBayPriceOverAverage )
+                                .filter( justThree )
                                 
         let stockFiltered = sStock.filter( filterOthersPriceOverAverage)
+                                    .filter( justThree )
 
         results = [ fnacFiltered, CiFiltered, carrefFiltered, ebayFiltered, stockFiltered ]
         res.json(results)

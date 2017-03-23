@@ -2,36 +2,18 @@ angular.module('Click-counts-app')
 
 .controller('homeController', function($scope, SearchFactory, $location, $rootScope, DataFactory) {
 
-
     const id = $rootScope.loggedUser.id
 
     $scope.searchBar = true
-
-    const SearchProduct = $scope.SearchProduct
-
     $scope.getSearch = (e) => {
         e.preventDefault()
-        SearchFactory.getSearch($scope.SearchProduct)
-            .then(function(response) {
-                SearchFactory.showQuery(id, SearchProduct)
-                    .then(function(response) {
-                        console.log(response + ' QUERY RESPONSE')
-                    })
-                $location.path('/search/' + SearchProduct)
-                $rootScope.SectionSearch = true
-                $rootScope.corteIProducts = response.data[0]
-                $rootScope.fnacProducts = response.data[1]
-                $rootScope.carrefProducts = response.data[2]
-                $rootScope.ebayProducts = response.data[3]
-                $rootScope.soloProducts = response.data[4]
-            })
+        $location.path('/search/' + $scope.SearchProduct)
     }
 
 })
 
 .controller('editController', function($scope, $rootScope, DataFactory, $location) {
-    // $rootScope.EditSection = true
-    // $rootScope.UserSection = true
+
 
     const id = $scope.loggedUser.id
 
@@ -101,19 +83,47 @@ angular.module('Click-counts-app')
                 $scope.username = user.username
                 $scope.image = user.image
             })
+    })
+
+.controller('searchController', function($scope, $rootScope, $routeParams, SearchFactory, $location) {
+    
+    $scope.searchBar = true
+
+    let {query} = $routeParams
+
+    const id = $rootScope.loggedUser.id
+
+    $scope.getSearch = (e) => {
+        e.preventDefault()
+        $location.path('/search/' + $scope.SearchProduct)
+    }
+
+    SearchFactory.getSearch(query)
+        .then(function(response) {
+                console.log(response)
+                $rootScope.SectionSearch = true
+                $rootScope.corteIProducts = response.data[0]
+                $rootScope.fnacProducts = response.data[1]
+                $rootScope.carrefProducts = response.data[2]
+                $rootScope.ebayProducts = response.data[3]
+                $rootScope.soloProducts = response.data[4]      
+                    
+            })
+        SearchFactory.showQuery(id, query)
+             .then(function (response) {
+                 console.log( response + ' QUERY RESPONSE')
+                         })
+
 
     })
-    .controller('searchController', function($scope, $rootScope, SearchFactory, $location) {
 
-        $scope.searchBar = true
-    })
 
 .controller('graphicsController', function($scope, $rootScope, SearchFactory) {
 
     $scope.searchBar = true
 
     function filterPriceAverage(elem) {
-        return elem.price.replace(/€[\s\S]*$/g, '')
+        return parseInt(elem.price.replace(/€[\s\S]*$/g, ''))
     }
 
     function filterFirstTree(elem, index) {
@@ -139,6 +149,7 @@ angular.module('Click-counts-app')
     const ebayPrices = $rootScope.ebayProducts.map(ebayFilter)
         .filter(filterFirstTree)
     console.log(ebayPrices)
+
     $scope.averages = () => {
 
         $scope.chart = c3.generate({

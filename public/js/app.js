@@ -1,4 +1,4 @@
-angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
+angular.module('Click-counts-app', ['ngRoute','myDirectives', 'angular-jwt'])
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor')
     })
@@ -21,8 +21,8 @@ angular.module('Click-counts-app', ['ngRoute', 'angular-jwt'])
                 controller: 'searchController'
             })
             .when('/charts', {
-                    templateUrl: '/partials/graphics.html',
-                    controller: 'graphicsController'
+                templateUrl: '/partials/graphics.html',
+                controller: 'graphicsController'
             })
             .when('/private', {
                 templateUrl: '/partials/private.html',

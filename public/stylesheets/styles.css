@@ -137,7 +137,20 @@ div#tools-bar {
 
 /*------------Private section-------------- */
 div#privateSection {
-  margin-top: 100px; }
+  margin-top: 63px; }
+
+div.profileNameSection {
+  display: flex;
+  font-size: 21px; }
+  div.profileNameSection p {
+    margin-left: 15px; }
+
+div.profileEmailSection {
+  font-family: Helvetica Neue;
+  display: flex;
+  font-size: 21px; }
+  div.profileEmailSection p {
+    margin-left: 15px; }
 
 div.profileSection {
   display: flex;
@@ -165,27 +178,48 @@ div.privateButton {
   display: flex; }
 
 div.editUserContainer {
-  margin-top: 90px; }
+  margin-top: 63px; }
+
+img.privateSectionLogo {
+  width: 150px;
+  height: 60px; }
+
+div.topPrivateSection {
+  display: flex;
+  justify-content: space-between; }
 
 /*-------------Search Container-------------- */
+h3.findingResults {
+  color: dodgerblue; }
+
 div#searchContainer {
   margin-top: 86px; }
 
 div#resultsP {
   padding-top: 7px; }
   div#resultsP p#result {
-    text-align: center; }
+    text-align: center;
+    font-size: 30px; }
 
 nav#results-bar {
-  margin-top: 10px;
+  margin-top: 60px;
   border: 1px solid; }
 
+div.buttonfiltersContainer {
+  display: flex;
+  justify-content: space-around; }
+
+form.SearchFormFromSearch {
+  text-align: center; }
+
 ul#filterResult {
-  width: 130px;
+  margin-bottom: 10px;
   height: 100%;
   display: flex; }
-  ul#filterResult li {
+  ul#filterResult li.nav-item {
     margin-left: 5px; }
+    ul#filterResult li.nav-item a {
+      width: 170px; }
 
 h3.productTitle {
   height: 52px;
@@ -289,7 +323,7 @@ img.averageImg {
     padding-top: 6px; }
 
 .footer {
-  background: #EDEFF1;
+  background: #f8f8f8;
   height: auto;
   padding-bottom: 30px;
   position: relative;
@@ -315,7 +349,7 @@ img.averageImg {
     margin: 0; }
   .footer h3 {
     border-bottom: 1px solid #BAC1C8;
-    color: #54697E;
+    color: #333;
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;

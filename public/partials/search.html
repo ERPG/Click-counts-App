@@ -1,12 +1,23 @@
-<div ng-include="'/partials/home.html'"></div>
-
+<!-- <div ng-include="'/partials/home.html'"></div> -->
 <div ng-include="'/partials/searchBar.html'"></div>
-
 <div ng-show='SectionSearch' id="searchContainer" class="container">
+    <div class="SearchFormContainer">
+        <form class="SearchFormFromSearch" class="navbar-form navbar-center" ng-submit="getSearch($event)">
+            <div class="form-group">
+                <input class="homeSearchInput" type="text" class="form-control" placeholder="Find your product..." ng-model="SearchProduct">
+            </div>
+            <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </form>
+    </div>
+<div class="container">
+    <div>
+        <h3 class="findingResults">Se Han Encontrado {{ }} en Ebay</h3>
+    </div>
+    <hr>
     <div ng-init="3" id="ebayThumb" class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="product in ebayProducts | limitTo: 3 ">
             <div class="thumbnail">
-                <img src="{{ product.galleryURL[0] }}" alt="...">
+                <img src="{{ product.galleryURL[0] }}" err-src="/stylesheets/images/no-available-image.jpg" alt="...">
                 <div class="caption">
                     <h3 class="productTitle">{{ product.title[0] }}</h3>
                     <p>{{ product.sellingStatus[0].currentPrice[0].__value__ }} EUR</p>
@@ -24,10 +35,14 @@
             </div>
         </div>
     </div>
+    <div>
+        <h3 class="findingResults">Se Han Encontrado {{ }} en el Corte Ingles</h3>
+    </div>
+    <hr>
     <div id="CIThumb" class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="product in corteIProducts | limitTo: 3">
             <div class="thumbnail">
-                <img ng-src="http:{{product.image}}" alt="...">
+                <img ng-src="http:{{product.image}}" err-src="/stylesheets/images/no-available-image.jpg" alt="...">
                 <div class="caption">
                     <h3 class="productTitle">{{ product.description }}</h3>
                     <p>{{ product.price }}</p>
@@ -43,10 +58,14 @@
             </div>
         </div>
     </div>
+    <div>
+        <h3 class="findingResults">Se Han Encontrado {{ }} en Fnac</h3>
+    </div>
+    <hr>
     <div id="fnacThumb" class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="product in fnacProducts | limitTo: 3">
             <div class="thumbnail">
-                <img src="{{ product.image }}" alt="...">
+                <img src="{{ product.image }}" err-src="/stylesheets/images/no-available-image.jpg" alt="...">
                 <div class="caption">
                     <h3 class="productTitle">{{ product.description }}</h3>
                     <p>{{ product.price }}</p>
@@ -62,10 +81,14 @@
             </div>
         </div>
     </div>
+    <div>
+        <h3 class="findingResults">Se Han Encontrado {{ }} en el Carrefour</h3>
+    </div>
+    <hr>
     <div id="carrefourThumb" class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="product in carrefProducts | limitTo: 3">
             <div class="thumbnail">
-                <img ng-src="http:{{ product.image }}" alt="...">
+                <img ng-src="http:{{ product.image }}" err-src="/stylesheets/images/no-available-image.jpg" alt="...">
                 <div class="caption">
                     <h3 class="productTitle">{{ product.description }}</h3>
                     <p>{{ product.price }}</p>
@@ -81,10 +104,14 @@
             </div>
         </div>
     </div>
+    <div>
+        <h3 class="findingResults">Se Han Encontrado {{ }} en SoloStock</h3>
+    </div>
+    <hr>
     <div id="soloStockThumb" class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="product in soloProducts | limitTo: 3">
             <div class="thumbnail">
-                <img ng-src="{{ product.image }}" alt="...">
+                <img ng-src="{{ product.image }}" err-src="/stylesheets/images/no-available-image.jpg" alt="...">
                 <div class="caption">
                     <h3 class="productTitle">{{ product.description }}</h3>
                     <p>{{ product.price }}</p>

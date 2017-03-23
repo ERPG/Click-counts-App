@@ -1,7 +1,11 @@
 <div ng-include="'/partials/navbar.html'"></div>
 <div ng-controller="privateController" class="container">
     <div id="privateSection">
-        <h1>Profile Section</h1>
+        <div class="topPrivateSection">
+            <h1>Profile Section</h1>
+            <img class="privateSectionLogo" src="http://i67.tinypic.com/978bvd.png">
+        </div>
+        <hr>
         <div class="alert alert-success">
             <p><strong>You are logged!</strong> {{ message }} {{username}}</p>
         </div>
@@ -9,10 +13,14 @@
     <div class="profileSection">
         <img class="img-circle" src="{{ image }}" />
         <div class="usernameParagraphs">
-            <p class="lead">Name: </p>
-            <p>{{ name }}</p>
-            <p class="lead">Email: </p>
-            <p>{{ email }}</p>
+            <div class="profileNameSection">
+                <p class="lead">Name: </p>
+                <p>{{ name }}</p>
+            </div>
+            <div class="profileEmailSection">
+                <p class="lead">Email: </p>
+                <p>{{ email }}</p>
+            </div>
             <div class="privateButtons">
                 <div>
                     <a class="EditButton btn btn-primary" href="#!/editProfile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>

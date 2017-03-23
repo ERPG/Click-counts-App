@@ -2,15 +2,14 @@ angular.module('Click-counts-app')
   .factory('SearchFactory', function($http, $rootScope) {
 
     function getSearch(searchQuery) {
-        console.log(searchQuery)
-        return $http.post('/api/search', { searchQuery })
+        return $http.post('/api/search', { searchQuery } )
 
     }
 
     function showQuery(id, query) {
       const urlQ = `/api/users/${id}`
-      return $http.put(urlQ, { query } )
-              .then( data => console.log(data + "from PUT") ) 
+      return $http.put(urlQ, { query } ) 
+          .then( response => console.log(response) )
     }
 
     return {
@@ -61,7 +60,6 @@ angular.module('Click-counts-app')
 
     function register(credentials) {
       const url = '/api/register'
-      // console.log(credentials);
       return $http.post(url, credentials)
         .then( $location.path("/login") )
     }
