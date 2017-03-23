@@ -1,3 +1,13 @@
+<style>
+   img.animatedGif{
+    height: 50px
+   }
+   div#loginMessage{
+    display: flex;
+   } 
+</style>
+
+
 <div ng-include="'/partials/navbar.html'"></div>
 <div ng-controller="privateController" class="container">
     <div id="privateSection">
@@ -6,29 +16,28 @@
             <img class="privateSectionLogo" src="http://i67.tinypic.com/978bvd.png">
         </div>
         <hr>
-        <div class="alert alert-success">
-            <p><strong>You are logged!</strong> {{ message }} {{username}}</p>
+        <div id="loginMessage" class="alert alert-success">
+            <p> {{ message }} <span class="loggersName"> {{username}} !! </span></p>
+            <img class="animatedGif" src="https://media.giphy.com/media/xUPGclxTfaPjj31CCI/giphy.gif" alt="">
         </div>
     </div>
     <div class="profileSection">
         <img class="img-circle" src="{{ image }}" />
         <div class="usernameParagraphs">
             <div class="profileNameSection">
-                <p class="lead">Name: </p>
+                <label class="control-label">Name: </label>
                 <p>{{ name }}</p>
             </div>
             <div class="profileEmailSection">
-                <p class="lead">Email: </p>
+                <label class="control-label">Email: </label>
                 <p>{{ email }}</p>
             </div>
             <div class="privateButtons">
                 <div>
                     <a class="EditButton btn btn-primary" href="#!/editProfile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <a class="EditButton btn btn-default" href="#!/Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                 </div>
             </div>
         </div>
     </div>
-    <!--         <div ng-show="EditSection"></div>
-        <div ng-hide="UserSection" class="page-footer container profileSection"><div>
-        <div ng-include="'/partials/editUser.html'"></div> -->
 </div>

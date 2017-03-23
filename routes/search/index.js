@@ -45,12 +45,6 @@ router.post('/search', function(req, res) {
 
         }
 
-        // function filterFnacPriceOverAverage(elem) { 
-        //     if (elem.price.replace(/[^0-9-,]|€|-/g, '') >= averagePrice) { 
-        //         return elem 
-        //     }  
-        // }
-
         function filterOthersPriceOverAverage(elem) { 
             if ( parseInt(elem.price.replace(/€[\s\S]*$/g, '')) >= averagePrice) { 
                 return elem 
@@ -65,7 +59,7 @@ router.post('/search', function(req, res) {
         }
 
         function justThree(elem, index) {
-            return index <= 4
+            return index <= 3
 
         } 
 
@@ -73,7 +67,7 @@ router.post('/search', function(req, res) {
                                 .filter( justThree )
 
         let CiFiltered = CI.filter( filterOthersPriceOverAverage )
-                                    .filter( justThree )
+                            .filter( justThree )
         console.log(CiFiltered)
 
         let carrefFiltered = carref.filter( filterOthersPriceOverAverage )

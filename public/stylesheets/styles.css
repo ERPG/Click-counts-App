@@ -19,10 +19,10 @@ i#facebook {
   margin-right: 10px; }
 
 img#loginLogo {
-  height: 200px; }
+  height: 120px; }
 
 img#registerLogo {
-  height: 200px; }
+  height: 120px; }
 
 .legend {
   text-align: center; }
@@ -44,14 +44,17 @@ input#inputPassword {
 button.loginButton {
   width: 30%;
   margin: 0 auto;
-  height: 45px; }
+  height: 45px;
+  margin-top: 10px;
+  font-size: 16px; }
 
 div.buttonRegisterContainer {
   text-align: center; }
 
 button#singlebuttonRegister {
   width: 30%;
-  height: 45px; }
+  height: 45px;
+  font-size: 16px; }
 
 /*-------------home Search styles-------------- */
 div.imgContainer {
@@ -110,7 +113,7 @@ img.CIhomeImg {
 
 img.soloHomeImg {
   height: 50px;
-  width: 130px; }
+  width: 150px; }
 
 img.fnacHomeImg {
   height: 50px;
@@ -118,7 +121,7 @@ img.fnacHomeImg {
 
 img.CarrefhomeImg {
   height: 50px;
-  width: 130px; }
+  width: 150px; }
 
 img.ebayhomeImg {
   height: 50px;
@@ -141,16 +144,19 @@ div#privateSection {
 
 div.profileNameSection {
   display: flex;
-  font-size: 21px; }
+  font-size: 18px; }
   div.profileNameSection p {
-    margin-left: 15px; }
+    margin-left: 15px;
+    font-family: initial; }
 
 div.profileEmailSection {
   font-family: Helvetica Neue;
   display: flex;
-  font-size: 21px; }
+  font-size: 18px;
+  margin-bottom: 15px; }
   div.profileEmailSection p {
-    margin-left: 15px; }
+    margin-left: 15px;
+    font-family: initial; }
 
 div.profileSection {
   display: flex;
@@ -159,6 +165,8 @@ div.profileSection {
 
 div.usernameParagraphs {
   margin-left: 40px; }
+  div.usernameParagraphs p {
+    font-family: georgia; }
 
 .img-circle {
   height: 130px; }
@@ -184,9 +192,18 @@ img.privateSectionLogo {
   width: 150px;
   height: 60px; }
 
-div.topPrivateSection {
-  display: flex;
-  justify-content: space-between; }
+div#loginMessage p {
+  margin-bottom: 0px;
+  margin-top: 13px;
+  margin-right: 10px; }
+
+img.animatedGif {
+  height: 50px; }
+
+span.loggersName {
+  font-weight: bold;
+  font-size: large;
+  font-family: -webkit-body; }
 
 /*-------------Search Container-------------- */
 h3.findingResults {
@@ -364,9 +381,6 @@ img.averageImg {
   input {
     width: 100%; }
 
-  p#result {
-    font-size: 15px; }
-
   input.inputSearch {
     width: 100%; }
 
@@ -396,11 +410,18 @@ img.averageImg {
     height: 100px;
     width: 70%; }
 
+  form.registerForm {
+    margin-right: 10px;
+    margin-left: 10px; }
+
   img.homeLogo {
     height: 80px;
     width: 180px;
     margin-left: 118px;
     margin-top: 150px; }
+
+  div.homeSlogan h3 {
+    font-size: 16px; }
 
   div.imgContainer {
     margin-top: 100px; }
@@ -426,7 +447,22 @@ img.averageImg {
 
   img.ebayhomeImg {
     height: 30px;
-    width: 70px; } }
+    width: 70px; }
+
+  nav#results-bar {
+    margin-top: 210px; }
+    nav#results-bar p#result {
+      font-size: 21px; }
+
+  div.topPrivateSection h1 {
+    font-size: 27px; }
+
+  div.topPrivateEditSection {
+    margin-top: 149px;
+    display: flex;
+    justify-content: space-between; }
+    div.topPrivateEditSection h1 {
+      font-size: 27px; } }
 @media all and (min-width: 765px) {
   input {
     width: 100%; } }

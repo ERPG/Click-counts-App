@@ -53,7 +53,7 @@ angular.module('Click-counts-app', ['ngRoute','myDirectives', 'angular-jwt'])
     $rootScope.$on("userLogged", function (event, id){
         DataFactory.getUser(id)
             .then(response => {
-                console.log(response + ' USER DATA BROATCAST')
+                response.data
             })
     })
 })

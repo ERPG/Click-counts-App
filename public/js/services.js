@@ -20,6 +20,12 @@ angular.module('Click-counts-app')
 })
   .factory('DataFactory', function ($http){
 
+    function getQueries(id) {
+      const url = `/api/users/${id}`
+      console.log(id + ' from services')
+      return $http.get(url)
+    }
+
     function getPrivateData() {
       const url = '/private'
       return $http.get(url)
@@ -42,7 +48,8 @@ angular.module('Click-counts-app')
     return { 
       getPrivateData,
       getUser,
-      editUser 
+      editUser,
+      getQueries 
     }
 
 

@@ -2,13 +2,20 @@ angular.module('Click-counts-app')
 
 .controller('homeController', function($scope, SearchFactory, $location, $rootScope, DataFactory) {
 
-    const id = $rootScope.loggedUser.id
+    console.log(id + ' from controller')
 
     $scope.searchBar = true
     $scope.getSearch = (e) => {
         e.preventDefault()
         $location.path('/search/' + $scope.SearchProduct)
     }
+
+    let id = $scope.loggedUser.id
+    DataFactory.getQueries(id)
+        .then( function (response){
+            console.log(response)
+        })
+
 
 })
 
@@ -32,9 +39,8 @@ angular.module('Click-counts-app')
             .then(user => {
                 $location.path('/private')
             })
-
-
     }
+
 })
 
 .controller('loginController', function($scope, $location, AuthFactory, $rootScope) {
@@ -91,8 +97,6 @@ angular.module('Click-counts-app')
 
     let {query} = $routeParams
 
-    const id = $rootScope.loggedUser.id
-
     $scope.getSearch = (e) => {
         e.preventDefault()
         $location.path('/search/' + $scope.SearchProduct)
@@ -109,11 +113,6 @@ angular.module('Click-counts-app')
                 $rootScope.soloProducts = response.data[4]      
                     
             })
-        SearchFactory.showQuery(id, query)
-             .then(function (response) {
-                 console.log( response + ' QUERY RESPONSE')
-                         })
-
 
     })
 
@@ -150,8 +149,6 @@ angular.module('Click-counts-app')
         .filter(filterFirstTree)
     console.log(ebayPrices)
 
-    $scope.averages = () => {
-
         $scope.chart = c3.generate({
             bindto: '#main-chart',
             data: {
@@ -175,8 +172,5 @@ angular.module('Click-counts-app')
                 ['Corte Ingles'].concat(corteIPrices), ['Carrefour'].concat(carrefPrices), ['Fnac'].concat(fnacPrices), ['Ebay'].concat(ebayPrices)
             ]
         });
-
-    }
-
 
 })

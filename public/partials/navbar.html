@@ -10,12 +10,12 @@
         </div>
         <div ng-hide="cleanView" ng-controller="NavbarCtrl" id="tools-bar">
             <ul class="nav nav-pills nav-justified">
-                <li><a href="#!/home">Home</a></li>
-                <li ng-hide="loggedUser"><a href="#!/login">Login</a></li>
-                <li ng-hide="loggedUser"><a href="#!/register">Register</a></li>
-                <li ng-show="loggedUser"><a type="button" href="#!/private">Profile</a></li>
+                <li><a href="#!/home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li ng-hide="loggedUser"><a href="#!/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                <li ng-hide="loggedUser"><a href="#!/register"><i class="fa fa-registered" aria-hidden="true"></i> Register</a></li>
+                <li ng-show="loggedUser"><a type="button" href="#!/private"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
                 <li ng-show="loggedUser">
-                    <a ng-click="logout()" href="#!/home">Logout</a>
+                    <a ng-click="logout()" href="#!/home">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                 </li>
             </ul>
         </div>
