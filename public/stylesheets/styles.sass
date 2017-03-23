@@ -1,16 +1,20 @@
 $break-medium: 765px
 $slogan-font: monospace
 $blue-for-button: #32a5fd
+$home-image: url('https://revistaitnow.com/wp-content/uploads/2015/10/online-shopping-image.jpg')
 
-/*-------------login styles--------------*/
+/*-------------login and register styles--------------*/
 h1#welcome
+	text-align: center
+
+div.loginImgContainer
 	text-align: center
 
 h2#slogan
 	text-align: center
 	margin-bottom: 30px
 	font-family: $slogan-font
-	color: crimson
+	color: navy
 	font-size: xx-large
 
 div.or
@@ -36,53 +40,110 @@ form#loginForm
 	width: 333px
 	margin: 0 auto
 
-div#logincontainer
-	box-shadow: 10px 10px 5px #888
-	border: 2px solid
-	border-radius: 35px
-	padding-bottom: 55px
-	margin-top: 50px
-	margin-left: 20px
-	margin-right: 100px
-	margin-right: 20px
-
 p.extra-link
 	text-align: center
+	margin-top: 10px
+
+input#inputPassword
+	margin-top: 10px
+
+button.loginButton
+	width: 30%
+	margin: 0 auto
+	height: 45px
+
+div.buttonRegisterContainer
+	text-align: center
+
+button#singlebuttonRegister
+	width: 30%
+	height: 45px
 
 
-/*-------------home styles--------------*/
-ul#barTools
-	margin-bottom: 0
-	display: inline-flex
-	list-style: none
+
+
+/*-------------home Search styles--------------*/
+
+div.imgContainer
+	text-align: center
+	padding-bottom: 50px
+	margin-right: 454px
+	margin-top: 51px
+
+img.homeLogo
+	height: 200px
+	position: absolute //ojo
+	margin-top: 20px
+
+
+div.backgroundImg
+	background: url('./images/background-home-image.jpg') 
+	background-size: cover
+	height: 500px
+	position: relative
+
+div.darkify
+	background-color: rgba(250, 250, 250, 0.9)
+	height: 500px
+
+div.SearchFormContainer
+	display: flex
+	justify-content: center
+
+
+form.homeSearchForm
+	padding-top: 200px
+	text-align: center
+	position: absolute
+
+input.homeSearchInput
+	width: 350px
+	height: 46px
+	border-radius: 5px
+
+
+div.logosContainerHome
+	display: flex
+	justify-content: space-around
+	margin-top: 290px
+	flex-direction: column
+
+div.logos2ContainerHome
+	text-align: center
+	display: flex
+	justify-content: space-around
+	margin-top: 15px
+
+div.homeSlogan
+	text-align: center
+
+img.CIhomeImg
+	height: 50px
+	width: 130px
+img.soloHomeImg
+	height: 50px
+	width: 130px
+img.fnacHomeImg
+	height: 50px
+	width: 130px
+img.CarrefhomeImg
+	height: 50px
+	width: 130px
+img.ebayhomeImg
+	height: 50px
+	width: 130px
+
+
+
 /*-------------first nav-bar section--------------*/
-#logoImg
-	width: 166px
-	height: 100%
-	height: 70px
-	border-radius: 8px
-	margin-top: -10px
 
 nav#homeNavbar
 	background-color: #383838
-	// height: 75px
-
-form
-	#findForm
-		text-align: center
-		margin-top: 10px
-
-input.inputSearch
-	border-radius: 5px
-	width: 400px
-	height: 36px
-
-button.findButton
-	background-color: $blue-for-button
 
 div#tools-bar
 	text-align: right
 	margin-right: 40px
+	margin-top: 5px
 	button
 		margin-right: 5px
 
@@ -93,6 +154,7 @@ div#privateSection
 div.profileSection
 	display: flex
 	margin-bottom: 20px
+	justify-content: center
 
 div.usernameParagraphs
 	margin-left: 40px
@@ -100,32 +162,34 @@ div.usernameParagraphs
 .img-circle
 	height: 130px
 
-div.EditAndSave
+div.editUserSection
+	display: flex
+	padding-right: 50px
+	padding-left: 50px
+
+input.editProfileButton
+	margin-bottom: 5px
+
+a.EditButton
+	width: 120px
 
 
 div.privateButton
 	display: flex
 
+div.editUserContainer
+	margin-top: 90px
 
-
-
-/*------------carousel section--------------*/
-
-div#secondContainer
-	margin-top: 94px
-
-div.carousel-inner
-	height: 300px
-
-img#carousel-img
-	height: 300px
 
 /*-------------Search Container--------------*/
+
 div#searchContainer
 	margin-top: 86px
 
 div#resultsP
 	padding-top: 7px
+	p#result
+		text-align: center
 
 nav#results-bar
 	margin-top: 10px
@@ -142,16 +206,6 @@ h3.productTitle
 	height: 52px
 	overflow: hidden
 
-/*-------------ebay section--------------*/
-
-div#ebayThumb
-
-/*------------- CorteIngles section--------------*/
-
-div#corteInglesThumb
-
-/*-------------Fnac section--------------*/
-
 
 /*-------------Graphics section--------------*/
 div#graphicsContainer
@@ -166,7 +220,7 @@ img.averageImg
 
 
 
-/*<----footer section------>*/
+/*<----------------footer section----------------->*/
 
 
 .full
@@ -295,12 +349,10 @@ img.averageImg
 .payments
 	font-size: 1.5em
 
-/*<---- favorite stars ------>*/
 
 
 
-
-/*<----media Queries------>*/
+/*<--------------------media Queries----------------->*/
 
 @media all and (max-width:$break-medium)
 	input
@@ -312,20 +364,46 @@ img.averageImg
 	#findForm
 		display: flex
 		flex-flow: column
-	img#logoImg
-		width: 120px
-		height: 52px
 	form#loginForm
 		width: 100%
 	div#secondContainer
 		margin-top: 204px
-	img#loginLogo
+	div#privateSection /*<---- profile ------>*/
+		margin-top: 210px
+	div.editUserSection
+		flex-direction: column
+		margin-bottom: 94px
+		margin-top: 40px
+	img#loginLogo /*<---- login ------>*/
 		width: 70%
 		height: 100px
-	img#registerLogo
+	img#registerLogo /*<---- register ------>*/
 		height: 100px
 		width: 70%
-
+	img.homeLogo /*<---- home.html  ------>*/
+		height: 80px
+		width: 180px
+		margin-left: 118px //
+		margin-top: 150px
+	div.imgContainer
+		margin-top: 100px
+	div#secondContainer
+		display: none
+	img.CIhomeImg
+		height: 10px
+		width: 70px
+	img.soloHomeImg
+		height: 30px
+		width: 70px
+	img.fnacHomeImg
+		height: 30px
+		width: 70px
+	img.CarrefhomeImg
+		height: 30px
+		width: 70px
+	img.ebayhomeImg
+		height: 30px
+		width: 70px
 
 
 

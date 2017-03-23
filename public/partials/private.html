@@ -1,3 +1,4 @@
+<div ng-include="'/partials/navbar.html'"></div>
 <div ng-controller="privateController" class="container">
     <div id="privateSection">
         <h1>Profile Section</h1>
@@ -13,10 +14,8 @@
             <p class="lead">Email: </p>
             <p>{{ email }}</p>
             <div class="privateButtons">
-                <a class="btn btn-default" type="button" href="#!/">Go to Home</a>
-                <div class="EditAndSave">
-                    <a class="btn btn-default" href="#!/editProfile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                    <a class="btn btn-primary" type="button" href="#!/">Save</a>
+                <div>
+                    <a class="EditButton btn btn-primary" href="#!/editProfile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                 </div>
             </div>
         </div>

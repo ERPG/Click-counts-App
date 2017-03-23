@@ -1,5 +1,8 @@
 <div id="logincontainer" class="container">
-    <h1 id="welcome"><b>Welcome to</b><img id="loginLogo" src="http://i67.tinypic.com/978bvd.png"></h1>
+    <h1 id="welcome"><b>Welcome to</b></h1>
+    <div class="loginImgContainer">
+        <img id="loginLogo" src="http://i67.tinypic.com/978bvd.png">
+    </div>
     <h2 id="slogan">Your Internet price comparator!!</h2>
     <form id="loginForm" method="POST" ng-submit="login()" class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -12,17 +15,13 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block loginButton" type="submit">Sign in</button>
     </form>
     <div class="or" 2>
         <p class="extra-link">¿Don't have an account? <a href="#!/register">Sign Up here</a></p>
-
-
         <h3>Or by... </h3>
-        
         <i id="facebook" class="fa fa-facebook-official fa-3x" aria-hidden="true"></i>
         <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
     </div>
 </div>
-
 <!-- /container -->

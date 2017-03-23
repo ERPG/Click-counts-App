@@ -1,6 +1,31 @@
 angular.module('Click-counts-app')
 
-.controller('homeController', function($scope, $rootScope, DataFactory) {
+.controller('homeController', function($scope, SearchFactory, $location, $rootScope, DataFactory) {
+
+
+    const id = $rootScope.loggedUser.id
+
+    $scope.searchBar = true
+
+    const SearchProduct = $scope.SearchProduct
+
+    $scope.getSearch = (e) => {
+        e.preventDefault()
+        SearchFactory.getSearch($scope.SearchProduct)
+            .then(function(response) {
+                SearchFactory.showQuery(id, SearchProduct)
+                    .then(function(response) {
+                        console.log(response + ' QUERY RESPONSE')
+                    })
+                $location.path('/search/' + SearchProduct)
+                $rootScope.SectionSearch = true
+                $rootScope.corteIProducts = response.data[0]
+                $rootScope.fnacProducts = response.data[1]
+                $rootScope.carrefProducts = response.data[2]
+                $rootScope.ebayProducts = response.data[3]
+                $rootScope.soloProducts = response.data[4]
+            })
+    }
 
 })
 
@@ -47,9 +72,7 @@ angular.module('Click-counts-app')
             const username = $scope.username
             const password = $scope.password
             const email = $scope.email
-            console.log(email)
             const name = $scope.name
-            console.log(name)
             AuthFactory.register({ username, password, name, email })
 
         }
@@ -82,52 +105,40 @@ angular.module('Click-counts-app')
     })
     .controller('searchController', function($scope, $rootScope, SearchFactory, $location) {
 
-        console.log($rootScope)
-        const id = $rootScope.loggedUser.id
-
         $scope.searchBar = true
-        $scope.getSearch = (e) => {
-            e.preventDefault()
-            const SearchProduct = $scope.SearchProduct
-            SearchFactory.getSearch($scope.SearchProduct)
-                .then(function(response) {
-                    SearchFactory.showQuery(id, SearchProduct)
-                        .then(function(response) {
-                            console.log(response)
-                        })
-                    console.log(response + ' From SearchController')
-                    $location.path('/search/' + SearchProduct)
-                    $rootScope.SectionSearch = true
-                    $rootScope.corteIProducts = response.data[0]
-                    $rootScope.fnacProducts = response.data[1]
-                    $rootScope.carrefProducts = response.data[2]
-                    $rootScope.ebayProducts = response.data[3]
-                    $rootScope.soloProducts = response.data[4]
-                })
-        }
-
-        $scope.quantity = () => {
-            $scope.changeQuantity = 3
-        }
     })
 
 .controller('graphicsController', function($scope, $rootScope, SearchFactory) {
 
     $scope.searchBar = true
 
-    const corteIPrices = $rootScope.corteIProducts.splice(0, 1).map((elem) => {
-        return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
-    })
-    const carrefPrices = $rootScope.carrefProducts.map((elem) => {
-        return parseInt(elem.price.replace(/[^0-9-,]|€|-/g, '')) || 0
-    })
-    const fnacPrices = $rootScope.fnacProducts.map((elem) => {
-        return parseInt(elem.price.replace(/€[\s\S]*$/g, '')) || 0
-    })
-    const ebayPrices = $rootScope.ebayProducts.map((elem) => {
-        return parseInt(elem.sellingStatus[0].currentPrice[0].__value__)
-    })
+    function filterPriceAverage(elem) {
+        return elem.price.replace(/€[\s\S]*$/g, '')
+    }
 
+    function filterFirstTree(elem, index) {
+        return index <= 3
+    }
+
+    function ebayFilter(elem) {
+        return parseInt(elem.sellingStatus[0].currentPrice[0].__value__)
+    }
+
+    const corteIPrices = $rootScope.corteIProducts.splice(0, 1)
+        .map(filterPriceAverage)
+        .filter(filterFirstTree)
+    console.log(corteIPrices)
+    const carrefPrices = $rootScope.carrefProducts
+        .map(filterPriceAverage)
+        .filter(filterFirstTree)
+    console.log(carrefPrices)
+    const fnacPrices = $rootScope.fnacProducts
+        .map(filterPriceAverage)
+        .filter(filterFirstTree)
+    console.log(fnacPrices)
+    const ebayPrices = $rootScope.ebayProducts.map(ebayFilter)
+        .filter(filterFirstTree)
+    console.log(ebayPrices)
     $scope.averages = () => {
 
         $scope.chart = c3.generate({

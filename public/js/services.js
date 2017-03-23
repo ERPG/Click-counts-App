@@ -10,7 +10,7 @@ angular.module('Click-counts-app')
     function showQuery(id, query) {
       const urlQ = `/api/users/${id}`
       return $http.put(urlQ, { query } )
-              .then( data => console.log(data) ) 
+              .then( data => console.log(data + "from PUT") ) 
     }
 
     return {

@@ -40,43 +40,41 @@ router.post('/search', function(req, res) {
         let [ fnac, CI, carref, ebay, sStock ] = results
         ebay = results[3].findItemsByKeywordsResponse[0].searchResult[0].item
 
-        function filterFnacPriceOverAverage(elem) { 
-            if (elem.price.replace(/[^0-9-,]|€|-/g, '') >= averagePrice) { 
-                return elem 
-            }  
+        function filterWrongData(elem) {
+            return elem.price.replace(/€[\s\S]*$/g, '')
+
         }
 
+        // function filterFnacPriceOverAverage(elem) { 
+        //     if (elem.price.replace(/[^0-9-,]|€|-/g, '') >= averagePrice) { 
+        //         return elem 
+        //     }  
+        // }
+
         function filterOthersPriceOverAverage(elem) { 
-            if (elem.price.replace(/€[\s\S]*$/g, '') >= averagePrice) { 
+            if ( parseInt(elem.price.replace(/€[\s\S]*$/g, '') ) >= averagePrice) { 
                 return elem 
             }  
         }
 
         function filterEBayPriceOverAverage(elem) {
             const price = elem.sellingStatus[0].currentPrice[0].__value__
-            if (parseInt(price) >= averagePrice) { 
+            if ( parseInt(price) >= averagePrice ) { 
                 return elem 
             } 
         }
 
-        function filterFirstTree(elem, index) { 
-            return index <= 3
-        }
+        let fnacFiltered = fnac.filter( filterOthersPriceOverAverage )
 
-        let fnacFiltered = fnac.filter(filterFirstTree)
-                                .filter( filterFnacPriceOverAverage )
+        let CiFiltered = CI.filter( filterOthersPriceOverAverage )
+        console.log(CiFiltered)
 
-        let CiFiltered = CI.filter(filterFirstTree)
-                            .filter( filterOthersPriceOverAverage)
+        let carrefFiltered = carref.filter( filterOthersPriceOverAverage )
+        console.log(carrefFiltered)
 
-        let carrefFiltered = carref.filter(filterFirstTree)
-                                    .filter( filterOthersPriceOverAverage)
-
-        let ebayFiltered = ebay.filter(filterFirstTree)
-                                .filter( filterEBayPriceOverAverage )
-
-        let stockFiltered = sStock.filter(filterFirstTree)
-                                    .filter( filterOthersPriceOverAverage)
+        let ebayFiltered = ebay.filter( filterEBayPriceOverAverage )
+                                
+        let stockFiltered = sStock.filter( filterOthersPriceOverAverage)
 
         results = [ fnacFiltered, CiFiltered, carrefFiltered, ebayFiltered, stockFiltered ]
         res.json(results)

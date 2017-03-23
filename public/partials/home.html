@@ -1,35 +1,36 @@
-<div ng-hide="cleanView" id="secondContainer">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/kindle/merch/gw/2016/eink_fam_ea_qh-gw-superhero-es-1500x300._CB268875482_.jpg" alt="...">
+<div ng-include="'/partials/navbar.html'"></div>
+<!-- <style>
+.darkify {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 500px;
+}
+</style> -->
+<div class="backgroundImg">
+    <!-- content backgroundImg -->
+    <div class="darkify">
+        <div class="imgContainer">
+            <img class="homeLogo" src="http://i64.tinypic.com/11qsady.jpg">
+        </div>
+        <div class="SearchFormContainer">
+            <form class="homeSearchForm" class="navbar-form navbar-center" ng-submit="getSearch($event)">
+                <div class="form-group">
+                    <input class="homeSearchInput" type="text" class="form-control" placeholder="Find your product..." ng-model="SearchProduct">
+                </div>
+                <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            </form>
+        </div>
+        <div class="logosContainerHome">
+            <div class="homeSlogan">
+                <h3>COMPARA LOS PRECIOS DE LOS MEJORES ECOMMERCE DEL PAIS</h3>
             </div>
-            <div class="item">
-                <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/digital/video/magellan/country/spain/ES_X-Site_GWSuperhero_Desktop_FT_3000x600._CB533724925_.jpg" alt="...">
-            </div>
-            <div class="item">
-                <img id="carousel-img" src="https://images-na.ssl-images-amazon.com/images/G/30/amazonservices/seller_success_stories/2017/IWD/2017_IWD_gw-desktopHero_2x_ES._CB533527818_.jpg" alt="...">
+            <div class="logos2ContainerHome">
+                <img class="CIhomeImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Logo_Corte_Ingl%C3%A9s.svg/245px-Logo_Corte_Ingl%C3%A9s.svg.png">
+            <img class="soloHomeImg" class="" src="http://www.solostocks.net/logo.png">
+            <img class="fnacHomeImg" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Fnac_Logo.svg">
+            <img class="CarrefhomeImg" src="https://www.bigbenshop.es/img_db/markets/item-57163ec2eac08.png">
+            <img class="ebayhomeImg" src="http://3.bp.blogspot.com/-9KMPV5MRk9I/VLFMNW5RNBI/AAAAAAAAAMU/U5-CUS8e1Zo/s1600/EBay_former_logo.svg.png">
             </div>
         </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
     </div>
-
-    <script>
-
-    $('.carousel').carousel({
-        interval: 3000
-    })
-    </script>
+    <!-- backgorund IMage -->
+</div>
