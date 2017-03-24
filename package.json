@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "6.10.0",
-    "npm": "3.10.10"
+    "node": "6.10.0"
   },
   "scripts": {
     "prestart": "npm install",
