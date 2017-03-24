@@ -10,7 +10,7 @@
 [![SASS](https://github.com/FransLopez/logo-images/blob/master/logos/sass.png)](http://sass-lang.com/)  
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-#Click-count-app
+# Click-count-app
 A Web application to look for compare products prices in the most wanted websites of the country.
 
 ## Installation
@@ -45,7 +45,7 @@ You need to create an **.env** file in the project root with the following envir
 ```
 All dependencies will be installed automatically
 
-###Websites to data Consult:
+### Websites to data Consult:
 
 in the word [KEYWORD] you can use your query search
 
