@@ -57,6 +57,9 @@ button#singlebuttonRegister {
   font-size: 16px; }
 
 /*-------------home Search styles-------------- */
+div#tools-bar ul {
+  margin-top: 5px; }
+
 div.imgContainer {
   text-align: center;
   padding-bottom: 50px;

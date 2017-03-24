@@ -1,7 +1,7 @@
 angular.module('Click-counts-app')
 
 	.controller('loginController', function($scope, $location, AuthFactory, $rootScope) {
-	        $rootScope.cleanView = false
+	        $rootScope.cleanView = true
 	        $scope.login = function() {
 	            const username = $scope.username
 	            const password = $scope.password
