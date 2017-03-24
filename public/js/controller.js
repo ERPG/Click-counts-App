@@ -2,19 +2,26 @@ angular.module('Click-counts-app')
 
 .controller('homeController', function($scope, SearchFactory, $location, $rootScope, DataFactory) {
 
-    console.log(id + ' from controller')
 
+    let id ;
+
+    $rootScope.cleanView = false
     $scope.searchBar = true
+
     $scope.getSearch = (e) => {
         e.preventDefault()
         $location.path('/search/' + $scope.SearchProduct)
     }
 
-    let id = $scope.loggedUser.id
-    DataFactory.getQueries(id)
-        .then( function (response){
-            console.log(response)
-        })
+     if ($scope.loggedUser) {
+        id = $scope.loggedUser.id
+
+        DataFactory.getQueries(id)
+            .then( function (response){
+                $scope.latestSearch = true
+                $scope.queries = response.data.querySearch
+            })
+     }
 
 
 })
@@ -96,10 +103,20 @@ angular.module('Click-counts-app')
     $scope.searchBar = true
 
     let {query} = $routeParams
+    let id;
 
     $scope.getSearch = (e) => {
         e.preventDefault()
         $location.path('/search/' + $scope.SearchProduct)
+    }
+
+    if ($scope.loggedUser) {
+        id = $scope.loggedUser.id
+        SearchFactory.addQueryToUserData(id, query)
+            .then( function(response){
+                console.log(response)
+            })
+
     }
 
     SearchFactory.getSearch(query)

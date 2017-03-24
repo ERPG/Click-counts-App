@@ -6,15 +6,15 @@ angular.module('Click-counts-app')
 
     }
 
-    function showQuery(id, query) {
+    function addQueryToUserData(id, query) {
       const urlQ = `/api/users/${id}`
-      return $http.put(urlQ, { query } ) 
-          .then( response => console.log(response) )
+      return $http.put(urlQ, { query } )
+          .then( response => response.data )
     }
 
     return {
         getSearch,
-        showQuery
+        addQueryToUserData
     }
 
 })
