@@ -69,7 +69,6 @@ router.post('/search', function(req, res) {
 
         let CiFiltered = CI.filter( filterOthersPriceOverAverage )
                             .filter( justThree )
-        console.log(CiFiltered)
 
         let carrefFiltered = carref.filter( filterOthersPriceOverAverage )
                                     .filter( justThree )
