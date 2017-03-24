@@ -14,7 +14,7 @@
         </div>
         <div class="logosContainerHome">
             <div ng-show="latestSearch" class="latestSearch">
-                <p>Latest Searchs: <a ng-repeat="query in queries" href="">{{ query }}  </a>...</p>
+                <p><strong>Latest Searchs: </strong><a ng-click="getSearch($event, query)" ng-repeat="query in queries" href="">{{ query }}  </a>...</p>
             </div>
             <div class="homeSlogan">
                 <h3>COMPARA LOS PRECIOS DE LOS MEJORES ECOMMERCE DEL PAIS</h3>

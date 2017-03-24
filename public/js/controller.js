@@ -29,15 +29,19 @@ angular.module('Click-counts-app')
 .controller('editController', function($scope, $rootScope, DataFactory, $location) {
 
 
-    const id = $scope.loggedUser.id
+    let id;
 
-    DataFactory.getUser(id)
-        .then(function(user) {
-            $scope.name = user.name
-            $scope.email = user.email
-            $scope.username = user.username
-            $scope.image = user.image
+    if ($scope.loggedUser) {
+        id = $scope.loggedUser.id
+
+        DataFactory.getUser(id)
+            .then(function(user) {
+                $scope.name = user.name
+                $scope.email = user.email
+                $scope.username = user.username
+                $scope.image = user.image
         })
+    }
 
     $scope.editUser = function(e) {
         e.preventDefault()
@@ -51,7 +55,7 @@ angular.module('Click-counts-app')
 })
 
 .controller('loginController', function($scope, $location, AuthFactory, $rootScope) {
-        $rootScope.cleanView = true
+        $rootScope.cleanView = false
         $scope.login = function() {
             const username = $scope.username
             const password = $scope.password
@@ -62,7 +66,7 @@ angular.module('Click-counts-app')
 
     })
     .controller('registerController', function($scope, AuthFactory, $rootScope) {
-        $rootScope.cleanView = true
+        $rootScope.cleanView = false
         $scope.register = function() {
             const username = $scope.username
             const password = $scope.password
@@ -81,13 +85,16 @@ angular.module('Click-counts-app')
     })
     .controller('privateController', function($scope, DataFactory, $rootScope) {
 
-        const id = $rootScope.loggedUser.id
+        let id;
 
 
         DataFactory.getPrivateData()
             .then(({ message }) => {
                 $scope.message = message
             })
+
+        if ($scope.loggedUser) {
+            id = $scope.loggedUser.id
 
         DataFactory.getUser(id)
             .then(function(user) {
@@ -96,6 +103,7 @@ angular.module('Click-counts-app')
                 $scope.username = user.username
                 $scope.image = user.image
             })
+        }
     })
 
 .controller('searchController', function($scope, $rootScope, $routeParams, SearchFactory, $location) {
@@ -112,12 +120,10 @@ angular.module('Click-counts-app')
 
     if ($scope.loggedUser) {
         id = $scope.loggedUser.id
-        SearchFactory.addQueryToUserData(id, query)
-            .then( function(response){
-                console.log(response)
-            })
 
+        SearchFactory.addQueryToUserData(id, query)
     }
+
 
     SearchFactory.getSearch(query)
         .then(function(response) {

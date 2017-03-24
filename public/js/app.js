@@ -1,4 +1,5 @@
 angular.module('Click-counts-app', ['ngRoute','myDirectives', 'angular-jwt'])
+
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor')
     })
