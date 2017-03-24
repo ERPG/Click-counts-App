@@ -18,7 +18,6 @@ angular.module('Click-counts-app')
         SearchFactory.addQueryToUserData(id, query)
     }
 
-
     SearchFactory.getSearch(query)
         .then(function(response) {
                 console.log(response)
